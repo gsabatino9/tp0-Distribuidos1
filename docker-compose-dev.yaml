@@ -39,6 +39,10 @@ services:
     - PYTHONUNBUFFERED=1
     - LOGGING_LEVEL=DEBUG
     image: server:latest
+    volumes:
+      - server_data:/data
     networks:
     - testing_net
 version: '3.9'
+volumes:
+  server_data:
