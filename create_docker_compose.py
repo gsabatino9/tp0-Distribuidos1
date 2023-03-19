@@ -16,6 +16,7 @@ def set_num_clients(num_clients):
             'container_name': client_name,
             'image': 'client:latest',
             'entrypoint': '/client',
+            'volumes': ['./client/config:/config'],
             'environment': [
                 f'CLI_ID={i+1}',
                 'CLI_LOG_LEVEL=DEBUG'
