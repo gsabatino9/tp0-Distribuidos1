@@ -1,5 +1,6 @@
 import socket
 import logging
+import signal
 
 
 class Server:
@@ -8,6 +9,13 @@ class Server:
         self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server_socket.bind(('', port))
         self._server_socket.listen(listen_backlog)
+        self._server_running = True
+
+        signal.signal(signal.SIGTERM, self.__handle_sigterm)
+
+    def __handle_sigterm(self, *args):
+        self._server_running = False
+        self.stop()
 
     def run(self):
         """
@@ -17,10 +25,7 @@ class Server:
         communication with a client. After client with communucation
         finishes, servers starts to accept new connections again
         """
-
-        # TODO: Modify this program to handle signal to graceful shutdown
-        # the server
-        while True:
+        while self._server_running:
             client_sock = self.__accept_new_connection()
             self.__handle_client_connection(client_sock)
 
@@ -31,6 +36,9 @@ class Server:
         If a problem arises in the communication with the client, the
         client socket will also be closed
         """
+
+        if not client_sock: return
+
         try:
             # TODO: Modify the receive to avoid short-reads
             msg = client_sock.recv(1024).rstrip().decode('utf-8')
@@ -51,8 +59,24 @@ class Server:
         Then connection created is printed and returned
         """
 
+        if not self._server_running: 
+            return None
         # Connection arrived
-        logging.info('action: accept_connections | result: in_progress')
-        c, addr = self._server_socket.accept()
-        logging.info(f'action: accept_connections | result: success | ip: {addr[0]}')
+        try:
+            logging.info('action: accept_connections | result: in_progress')
+            c, addr = self._server_socket.accept()
+            logging.info(f'action: accept_connections | result: success | ip: {addr[0]}')
+        except OSError:
+            c = None
+
         return c
+
+    def stop(self):
+        logging.info("action: close_socket | result: in_progress")
+        try:
+            self._server_socket.shutdown(socket.SHUT_RDWR)
+            self._server_socket.close()
+        except OSError:
+            logging.debug("action: close_socket | result: success | msg: socket disconnected")
+        finally:
+            logging.info("action: close_socket | result: success")
