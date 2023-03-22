@@ -1,4 +1,3 @@
-#pip install yaml
 import yaml
 import argparse
 
@@ -24,7 +23,6 @@ def set_num_clients(num_clients):
             'depends_on': ['server']
         }
 
-    # Guardar el archivo de Docker Compose actualizado
     with open('docker-compose-dev.yaml', 'w') as file:
         yaml.dump(docker_compose, file)
 

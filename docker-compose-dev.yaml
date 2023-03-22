@@ -6,32 +6,6 @@ networks:
       - subnet: 172.25.125.0/24
       driver: default
 services:
-  client1:
-    container_name: client1
-    depends_on:
-    - server
-    entrypoint: /client
-    environment:
-    - CLI_ID=1
-    - CLI_LOG_LEVEL=DEBUG
-    image: client:latest
-    volumes:
-      - ./client/config:/config
-    networks:
-    - testing_net
-  client2:
-    container_name: client2
-    depends_on:
-    - server
-    entrypoint: /client
-    environment:
-    - CLI_ID=2
-    - CLI_LOG_LEVEL=DEBUG
-    image: client:latest
-    volumes:
-      - ./client/config:/config
-    networks:
-    - testing_net
   server:
     container_name: server
     entrypoint: python3 /main.py
