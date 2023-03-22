@@ -11,11 +11,9 @@ class Server:
         self._server_socket.listen(listen_backlog)
         self._server_running = True
 
+        # Handling SIGTERM and SIGINT signals
         signal.signal(signal.SIGTERM, self.__handle_sigterm)
-
-    def __handle_sigterm(self, *args):
-        self._server_running = False
-        self.stop()
+        signal.signal(signal.SIGINT, self.__handle_sigterm)
 
     def run(self):
         """
@@ -37,7 +35,8 @@ class Server:
         client socket will also be closed
         """
 
-        if not client_sock: return
+        if not client_sock:
+            return
 
         try:
             # TODO: Modify the receive to avoid short-reads
@@ -47,7 +46,8 @@ class Server:
             # TODO: Modify the send to avoid short-writes
             client_sock.send("{}\n".format(msg).encode('utf-8'))
         except OSError as e:
-            logging.error("action: receive_message | result: fail | error: {e}")
+            logging.error(
+                "action: receive_message | result: fail | error: {e}")
         finally:
             client_sock.close()
 
@@ -59,7 +59,7 @@ class Server:
         Then connection created is printed and returned
         """
 
-        if not self._server_running: 
+        if not self._server_running:
             return None
         # Connection arrived
         try:
@@ -71,12 +71,17 @@ class Server:
 
         return c
 
+    def __handle_sigterm(self, *args):
+        self._server_running = False
+        self.stop()
+
     def stop(self):
         logging.info("action: close_socket | result: in_progress")
         try:
             self._server_socket.shutdown(socket.SHUT_RDWR)
             self._server_socket.close()
         except OSError:
-            logging.debug("action: close_socket | result: success | msg: socket disconnected")
+            logging.debug(
+                "action: close_socket | result: success | msg: socket disconnected")
         finally:
             logging.info("action: close_socket | result: success")
