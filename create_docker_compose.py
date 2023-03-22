@@ -1,4 +1,3 @@
-#pip install yaml
 import yaml
 import argparse
 
@@ -16,7 +15,6 @@ def set_num_clients(num_clients):
             'container_name': client_name,
             'image': 'client:latest',
             'entrypoint': '/client',
-            'volumes': ['./client/config:/config'],
             'environment': [
                 f'CLI_ID={i+1}',
                 'CLI_LOG_LEVEL=DEBUG'
@@ -25,7 +23,6 @@ def set_num_clients(num_clients):
             'depends_on': ['server']
         }
 
-    # Guardar el archivo de Docker Compose actualizado
     with open('docker-compose-dev.yaml', 'w') as file:
         yaml.dump(docker_compose, file)
 
