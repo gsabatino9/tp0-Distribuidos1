@@ -4,6 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"net"
+	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -21,6 +24,7 @@ type ClientConfig struct {
 type Client struct {
 	config ClientConfig
 	conn   net.Conn
+	sigChan chan os.Signal
 }
 
 // NewClient Initializes a new client receiving the configuration
@@ -28,7 +32,11 @@ type Client struct {
 func NewClient(config ClientConfig) *Client {
 	client := &Client{
 		config: config,
+		sigChan: make(chan os.Signal, 1),
 	}
+
+	// Register signal handler for SIGTERM
+	signal.Notify(client.sigChan, syscall.SIGTERM)
 	return client
 }
 
@@ -62,6 +70,12 @@ loop:
                 c.config.ID,
             )
 			break loop
+		case <-c.sigChan:
+			log.Infof("action: signal_received | result: success | client_id: %v", c.config.ID)
+			log.Debugf("action: close_resource | result: in_progress | resource: socket | client_id: %v", c.config.ID)
+			c.conn.Close()
+			log.Infof("action: close_resource | result: success | resource: socket | client_id: %v", c.config.ID)
+			break loop
 		default:
 		}
 
@@ -92,7 +106,15 @@ loop:
         )
 
 		// Wait a time between sending one message and the next one
-		time.Sleep(c.config.LoopPeriod)
+		timeout := time.After(c.config.LoopPeriod)
+		select {
+		case <-timeout:
+		case <-c.sigChan:
+			log.Infof("action: signal_received | result: success | client_id: %v", c.config.ID)
+			log.Infof("action: close_resource | result: success | resource: socket | client_id: %v | msg: socket already closed", c.config.ID)
+			return
+		}
+		
 	}
 
 	log.Infof("action: loop_finished | result: success | client_id: %v", c.config.ID)

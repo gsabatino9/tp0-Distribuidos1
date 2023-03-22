@@ -9,11 +9,10 @@ class Server:
         self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server_socket.bind(('', port))
         self._server_socket.listen(listen_backlog)
-        self._server_running = True
 
-        # Handling SIGTERM and SIGINT signals
+        # Register signal handler for SIGTERM
+        self._server_running = True
         signal.signal(signal.SIGTERM, self.__handle_sigterm)
-        signal.signal(signal.SIGINT, self.__handle_sigterm)
 
     def run(self):
         """
@@ -23,6 +22,8 @@ class Server:
         communication with a client. After client with communucation
         finishes, servers starts to accept new connections again
         """
+
+        # Server terminates when it receives SIGTERM
         while self._server_running:
             client_sock = self.__accept_new_connection()
             self.__handle_client_connection(client_sock)
@@ -35,8 +36,7 @@ class Server:
         client socket will also be closed
         """
 
-        if not client_sock:
-            return
+        if not client_sock: return
 
         try:
             # TODO: Modify the receive to avoid short-reads
@@ -59,8 +59,7 @@ class Server:
         Then connection created is printed and returned
         """
 
-        if not self._server_running:
-            return None
+        if not self._server_running: return None
         # Connection arrived
         try:
             logging.info('action: accept_connections | result: in_progress')
@@ -72,16 +71,25 @@ class Server:
         return c
 
     def __handle_sigterm(self, *args):
+        logging.info("action: signal_received | result: success | signal: SIGTERM")
         self._server_running = False
         self.stop()
 
     def stop(self):
-        logging.info("action: close_socket | result: in_progress")
+        """
+        Function to release server resources.
+
+        The server closes the socket file descriptor and 
+        logs the action at the start and end of the operation.
+        """
+
+        logging.debug("action: close_resource | result: in_progress | resource: socket")
         try:
             self._server_socket.shutdown(socket.SHUT_RDWR)
             self._server_socket.close()
         except OSError:
+            # if socket was alredy closed:
             logging.debug(
-                "action: close_socket | result: success | msg: socket disconnected")
+                "action: close_resource | result: success | resource: socket | msg: socket already closed")
         finally:
-            logging.info("action: close_socket | result: success")
+            logging.info("action: close_resource | result: success | resource: socket")
