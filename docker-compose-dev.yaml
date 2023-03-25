@@ -10,28 +10,97 @@ services:
     container_name: client1
     depends_on:
     - server
-    entrypoint: /client
+    entrypoint: python3 /main.py
     environment:
     - CLI_ID=1
     - CLI_LOG_LEVEL=DEBUG
+    - NOMBRE=Marta Marta
+    - APELLIDO=Perez
+    - DOCUMENTO=76489219
+    - NACIMIENTO=1908-10-14
+    - NUMERO=3511
     image: client:latest
-    volumes:
-      - ./client/config:/config
     networks:
     - testing_net
+    volumes:
+    - ./client/config:/config
+    - ./protocol:/protocol
   client2:
     container_name: client2
     depends_on:
     - server
-    entrypoint: /client
+    entrypoint: python3 /main.py
     environment:
     - CLI_ID=2
     - CLI_LOG_LEVEL=DEBUG
+    - NOMBRE=Manolo Lucas
+    - APELLIDO=Garcia
+    - DOCUMENTO=44448167
+    - NACIMIENTO=1914-12-18
+    - NUMERO=4953
     image: client:latest
-    volumes:
-      - ./client/config:/config
     networks:
     - testing_net
+    volumes:
+    - ./client/config:/config
+    - ./protocol:/protocol
+  client3:
+    container_name: client3
+    depends_on:
+    - server
+    entrypoint: python3 /main.py
+    environment:
+    - CLI_ID=3
+    - CLI_LOG_LEVEL=DEBUG
+    - NOMBRE=Lucas Lionel
+    - APELLIDO=Rodriguez
+    - DOCUMENTO=78410297
+    - NACIMIENTO=1942-11-21
+    - NUMERO=3922
+    image: client:latest
+    networks:
+    - testing_net
+    volumes:
+    - ./client/config:/config
+    - ./protocol:/protocol
+  client4:
+    container_name: client4
+    depends_on:
+    - server
+    entrypoint: python3 /main.py
+    environment:
+    - CLI_ID=4
+    - CLI_LOG_LEVEL=DEBUG
+    - NOMBRE=Marta Carla
+    - APELLIDO=Martinez
+    - DOCUMENTO=78478238
+    - NACIMIENTO=1969-10-26
+    - NUMERO=6215
+    image: client:latest
+    networks:
+    - testing_net
+    volumes:
+    - ./client/config:/config
+    - ./protocol:/protocol
+  client5:
+    container_name: client5
+    depends_on:
+    - server
+    entrypoint: python3 /main.py
+    environment:
+    - CLI_ID=5
+    - CLI_LOG_LEVEL=DEBUG
+    - NOMBRE=Marta Marta
+    - APELLIDO=Martinez
+    - DOCUMENTO=84473292
+    - NACIMIENTO=1958-12-25
+    - NUMERO=6090
+    image: client:latest
+    networks:
+    - testing_net
+    volumes:
+    - ./client/config:/config
+    - ./protocol:/protocol
   server:
     container_name: server
     entrypoint: python3 /main.py
@@ -41,4 +110,6 @@ services:
     image: server:latest
     networks:
     - testing_net
+    volumes:
+    - ./protocol:/protocol
 version: '3.9'

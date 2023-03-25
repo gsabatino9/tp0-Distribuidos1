@@ -1,6 +1,7 @@
 import csv
 import datetime
 import time
+import logging
 
 
 """ Bets storage location. """
@@ -23,6 +24,9 @@ class Bet:
         self.document = document
         self.birthdate = datetime.date.fromisoformat(birthdate)
         self.number = int(number)
+
+    def __str__(self):
+        return f"{self.agency},{self.document},{self.number}"
 
 """ Checks whether a bet won the prize or not. """
 def has_won(bet: Bet) -> bool:

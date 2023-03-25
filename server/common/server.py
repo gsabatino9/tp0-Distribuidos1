@@ -1,7 +1,8 @@
 import socket
 import logging
 import signal
-
+from protocol.protocol import Packet, Communication
+from common.utils import Bet, store_bets
 
 class Server:
     def __init__(self, port, listen_backlog):
@@ -25,10 +26,10 @@ class Server:
 
         # Server terminates when it receives SIGTERM
         while self._server_running:
-            client_sock = self.__accept_new_connection()
-            self.__handle_client_connection(client_sock)
+            client_comm = self.__accept_new_connection()
+            self.__handle_client_connection(client_comm)
 
-    def __handle_client_connection(self, client_sock):
+    def __handle_client_connection(self, client_comm):
         """
         Read message from a specific client socket and closes the socket
 
@@ -36,20 +37,22 @@ class Server:
         client socket will also be closed
         """
 
-        if not client_sock: return
-
+        if not client_comm: return
         try:
-            # TODO: Modify the receive to avoid short-reads
-            msg = client_sock.recv(1024).rstrip().decode('utf-8')
-            addr = client_sock.getpeername()
-            logging.info(f'action: receive_message | result: success | ip: {addr[0]} | msg: {msg}')
-            # TODO: Modify the send to avoid short-writes
-            client_sock.send("{}\n".format(msg).encode('utf-8'))
+            msg = client_comm.recv_bet()
+            addr = client_comm.getpeername()
+            logging.info(f'action: receive_message | result: success | ip: {addr[0]} | msg: {msg}')   
+            self.__process_msg(msg)
         except OSError as e:
             logging.error(
                 "action: receive_message | result: fail | error: {e}")
         finally:
-            client_sock.close()
+            client_comm.stop()
+   
+    def __process_msg(self, msg):
+        bet = Bet(msg.agency, msg.name, msg.last_name, msg.dni, msg.birthday, msg.number_bet)
+        store_bets([bet])
+        logging.info(f'action: apuesta_almacenada | result: success | dni: {msg.dni} | numero: {msg.number_bet}')
 
     def __accept_new_connection(self):
         """
@@ -65,10 +68,12 @@ class Server:
             logging.info('action: accept_connections | result: in_progress')
             c, addr = self._server_socket.accept()
             logging.info(f'action: accept_connections | result: success | ip: {addr[0]}')
-        except OSError:
-            c = None
 
-        return c
+            comm = Communication(c)
+        except OSError:
+            comm = None
+
+        return comm
 
     def __handle_sigterm(self, *args):
         logging.info("action: signal_received | result: success | signal: SIGTERM")
