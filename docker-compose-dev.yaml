@@ -14,11 +14,11 @@ services:
     environment:
     - CLI_ID=1
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Marta Marta
-    - APELLIDO=Perez
-    - DOCUMENTO=76489219
-    - NACIMIENTO=1908-10-14
-    - NUMERO=3511
+    - NOMBRE=Carla Carla
+    - APELLIDO=Garcia
+    - DOCUMENTO=58484285
+    - NACIMIENTO=1945-10-15
+    - NUMERO=3658
     image: client:latest
     networks:
     - testing_net
@@ -33,11 +33,11 @@ services:
     environment:
     - CLI_ID=2
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Manolo Lucas
-    - APELLIDO=Garcia
-    - DOCUMENTO=44448167
-    - NACIMIENTO=1914-12-18
-    - NUMERO=4953
+    - NOMBRE=Carla Lucas
+    - APELLIDO=Rodriguez
+    - DOCUMENTO=54465297
+    - NACIMIENTO=1972-12-25
+    - NUMERO=7615
     image: client:latest
     networks:
     - testing_net
@@ -52,11 +52,11 @@ services:
     environment:
     - CLI_ID=3
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Lucas Lionel
-    - APELLIDO=Rodriguez
-    - DOCUMENTO=78410297
-    - NACIMIENTO=1942-11-21
-    - NUMERO=3922
+    - NOMBRE=Paula Paula
+    - APELLIDO=Martinez
+    - DOCUMENTO=88462161
+    - NACIMIENTO=1962-11-13
+    - NUMERO=6168
     image: client:latest
     networks:
     - testing_net
@@ -71,11 +71,11 @@ services:
     environment:
     - CLI_ID=4
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Marta Carla
-    - APELLIDO=Martinez
-    - DOCUMENTO=78478238
-    - NACIMIENTO=1969-10-26
-    - NUMERO=6215
+    - NOMBRE=Marta Manolo
+    - APELLIDO=Perez
+    - DOCUMENTO=46485141
+    - NACIMIENTO=1966-10-23
+    - NUMERO=9701
     image: client:latest
     networks:
     - testing_net
@@ -90,11 +90,11 @@ services:
     environment:
     - CLI_ID=5
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Marta Marta
-    - APELLIDO=Martinez
-    - DOCUMENTO=84473292
-    - NACIMIENTO=1958-12-25
-    - NUMERO=6090
+    - NOMBRE=Manolo Marta
+    - APELLIDO=De Paul
+    - DOCUMENTO=85454173
+    - NACIMIENTO=1970-10-27
+    - NUMERO=3780
     image: client:latest
     networks:
     - testing_net
