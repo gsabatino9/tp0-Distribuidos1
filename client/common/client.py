@@ -1,7 +1,7 @@
 import socket
 import logging
 import signal
-from protocol.protocol import Packet, Communication
+from protocol.protocol import CommunicationClient
 
 def str_to_address(server_addr):
     list_aux = server_addr.split(':')
@@ -13,25 +13,26 @@ class Client:
     def __init__(self, client_id, server_addr):
         self._client_id = client_id
         self._server_addr = str_to_address(server_addr)
+        self.comm = self.__create_connection()
 
-        # Register signal handler for SIGTERM
-        # Configuramos la señal SIGTERM como interrumpible
         signal.siginterrupt(signal.SIGTERM, True)
         signal.signal(signal.SIGTERM, self.__handle_sigterm)
         self.running = True
 
-        self.comm = self.__create_connection()
-
-    def send_bet(self, bet):
-        self.comm.send_bet(bet)
-        logging.info(f'action: apuesta_enviada | result: success | dni: {bet.dni} | numero: {bet.number_bet}')
+    def send_bet(self, name, last_name, document, birthday, number_bet):
+        payload = [f"{name},{last_name},{document},{birthday},{number_bet}"]
+        self.comm.send_bets(payload, self._client_id, is_last=True)
+        status = self.comm.recv_status_chunk()
+        if status:
+            logging.info(f'action: apuesta_enviada | result: success | dni: {document} | numero: {number_bet}')
+        
         self.stop()
 
     def __create_connection(self):
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect(self._server_addr)
 
-        return Communication(client_socket)
+        return CommunicationClient(client_socket)
 
     def __handle_sigterm(self, *args):
         logging.info("action: signal_received | result: success | signal: SIGTERM")

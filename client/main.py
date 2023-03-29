@@ -5,7 +5,6 @@ from common.client import Client
 import logging
 import os
 import yaml
-from protocol.protocol import Packet
 
 def initialize_config():
     """ Parse env variables or config file to find program config params
@@ -43,8 +42,6 @@ def main():
     logging_level = config_params["log"]["level"]
     client_id = config_params["client_id"]
     server_addr = config_params["server"]["address"]
-    bet = Packet(client_id, config_params["name"], config_params["last_name"], config_params["document"],
-        config_params["birthday"], config_params["number_bet"])
 
     initialize_log(logging_level)
 
@@ -55,7 +52,8 @@ def main():
 
     # Initialize server and start server loop
     client = Client(client_id, server_addr)
-    client.send_bet(bet)
+    client.send_bet(config_params["name"], config_params["last_name"], config_params["document"],
+        config_params["birthday"], config_params["number_bet"])
 
 def initialize_log(logging_level):
     """

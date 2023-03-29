@@ -1,0 +1,56 @@
+docker build -f ./server/Dockerfile -t "server:latest" .
+docker build -f ./client/Dockerfile -t "client:latest" .
+# Execute this command from time to time to clean up intermediate stages generated 
+# during client build (your hard drive will like this :) ). Don't left uncommented if you 
+# want to avoid rebuilding client image every time the docker-compose-up command 
+# is executed, even when client code has not changed
+# docker rmi `docker images --filter label=intermediateStageToBeDeleted=true -q`
+docker compose -f docker-compose-dev.yaml up -d --build
+docker compose -f docker-compose-dev.yaml logs -f
+client4  | 2023-03-29 22:28:41 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client4  | 2023-03-29 22:28:41 INFO     action: apuesta_enviada | result: success | dni: 69487158 | numero: 3310
+client4  | 2023-03-29 22:28:41 DEBUG    action: close_resource | result: in_progress | resource: socket
+client4  | 2023-03-29 22:28:41 INFO     action: close_resource | result: success | resource: socket
+client4  | 2023-03-29 22:28:41 INFO     action: end_client_loop | result: success
+client1  | 2023-03-29 22:28:41 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client1  | 2023-03-29 22:28:41 INFO     action: apuesta_enviada | result: success | dni: 76480263 | numero: 5238
+client1  | 2023-03-29 22:28:41 DEBUG    action: close_resource | result: in_progress | resource: socket
+client1  | 2023-03-29 22:28:41 INFO     action: close_resource | result: success | resource: socket
+client1  | 2023-03-29 22:28:41 INFO     action: end_client_loop | result: success
+client2  | 2023-03-29 22:28:41 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client2  | 2023-03-29 22:28:41 INFO     action: apuesta_enviada | result: success | dni: 55481103 | numero: 6059
+client2  | 2023-03-29 22:28:41 DEBUG    action: close_resource | result: in_progress | resource: socket
+client2  | 2023-03-29 22:28:41 INFO     action: close_resource | result: success | resource: socket
+client2  | 2023-03-29 22:28:41 INFO     action: end_client_loop | result: success
+server   | 2023-03-29 22:28:41 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+server   | 2023-03-29 22:28:41 INFO     action: receive_message | result: success | ip: 172.25.125.3 | msg: {"type_message": 2, "agency": "4", "payload": ["Lucas Manolo,Perez,69487158,2000-11-16,3310"]}
+server   | 2023-03-29 22:28:41 INFO     action: apuesta_almacenada | result: success | dni: 69487158 | numero: 3310
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: success | ip: 172.25.125.4
+server   | 2023-03-29 22:28:41 INFO     action: receive_message | result: success | ip: 172.25.125.4 | msg: {"type_message": 2, "agency": "2", "payload": ["Gonzalo Lionel,Perez,55481103,2014-12-27,6059"]}
+server   | 2023-03-29 22:28:41 INFO     action: apuesta_almacenada | result: success | dni: 55481103 | numero: 6059
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: success | ip: 172.25.125.5
+server   | 2023-03-29 22:28:41 INFO     action: receive_message | result: success | ip: 172.25.125.5 | msg: {"type_message": 2, "agency": "1", "payload": ["Lucas Paula,Perez,76480263,1925-10-27,5238"]}
+server   | 2023-03-29 22:28:41 INFO     action: apuesta_almacenada | result: success | dni: 76480263 | numero: 5238
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: success | ip: 172.25.125.6
+server   | 2023-03-29 22:28:41 INFO     action: receive_message | result: success | ip: 172.25.125.6 | msg: {"type_message": 2, "agency": "3", "payload": ["Lucas Carla,Perez,55413214,1919-12-15,8908"]}
+server   | 2023-03-29 22:28:41 INFO     action: apuesta_almacenada | result: success | dni: 55413214 | numero: 8908
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: success | ip: 172.25.125.7
+server   | 2023-03-29 22:28:41 INFO     action: receive_message | result: success | ip: 172.25.125.7 | msg: {"type_message": 2, "agency": "5", "payload": ["Gonzalo Manolo,Martinez,62444117,1939-10-10,3389"]}
+server   | 2023-03-29 22:28:41 INFO     action: apuesta_almacenada | result: success | dni: 62444117 | numero: 3389
+server   | 2023-03-29 22:28:41 INFO     action: accept_connections | result: in_progress
+client3  | 2023-03-29 22:28:41 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client3  | 2023-03-29 22:28:41 INFO     action: apuesta_enviada | result: success | dni: 55413214 | numero: 8908
+client3  | 2023-03-29 22:28:41 DEBUG    action: close_resource | result: in_progress | resource: socket
+client3  | 2023-03-29 22:28:41 INFO     action: close_resource | result: success | resource: socket
+client3  | 2023-03-29 22:28:41 INFO     action: end_client_loop | result: success
+client5  | 2023-03-29 22:28:41 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client5  | 2023-03-29 22:28:41 INFO     action: apuesta_enviada | result: success | dni: 62444117 | numero: 3389
+client5  | 2023-03-29 22:28:41 DEBUG    action: close_resource | result: in_progress | resource: socket
+client5  | 2023-03-29 22:28:41 INFO     action: close_resource | result: success | resource: socket
+client5  | 2023-03-29 22:28:41 INFO     action: end_client_loop | result: success
