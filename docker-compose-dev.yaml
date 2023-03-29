@@ -14,11 +14,11 @@ services:
     environment:
     - CLI_ID=1
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Lucas Paula
-    - APELLIDO=Perez
-    - DOCUMENTO=76480263
-    - NACIMIENTO=1925-10-27
-    - NUMERO=5238
+    - NOMBRE=Lionel Paula
+    - APELLIDO=De Paul
+    - DOCUMENTO=78410198
+    - NACIMIENTO=1919-12-28
+    - NUMERO=6576
     image: client:latest
     networks:
     - testing_net
@@ -33,11 +33,11 @@ services:
     environment:
     - CLI_ID=2
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Gonzalo Lionel
-    - APELLIDO=Perez
-    - DOCUMENTO=55481103
-    - NACIMIENTO=2014-12-27
-    - NUMERO=6059
+    - NOMBRE=Lionel Carla
+    - APELLIDO=Fernandez
+    - DOCUMENTO=73393100
+    - NACIMIENTO=1926-10-21
+    - NUMERO=4687
     image: client:latest
     networks:
     - testing_net
@@ -52,11 +52,11 @@ services:
     environment:
     - CLI_ID=3
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Lucas Carla
-    - APELLIDO=Perez
-    - DOCUMENTO=55413214
-    - NACIMIENTO=1919-12-15
-    - NUMERO=8908
+    - NOMBRE=Manolo Carla
+    - APELLIDO=Rodriguez
+    - DOCUMENTO=61406278
+    - NACIMIENTO=1967-10-17
+    - NUMERO=3200
     image: client:latest
     networks:
     - testing_net
@@ -71,11 +71,11 @@ services:
     environment:
     - CLI_ID=4
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Lucas Manolo
-    - APELLIDO=Perez
-    - DOCUMENTO=69487158
-    - NACIMIENTO=2000-11-16
-    - NUMERO=3310
+    - NOMBRE=Carla Gonzalo
+    - APELLIDO=Paredes
+    - DOCUMENTO=56457101
+    - NACIMIENTO=1940-10-17
+    - NUMERO=6419
     image: client:latest
     networks:
     - testing_net
@@ -90,11 +90,11 @@ services:
     environment:
     - CLI_ID=5
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Gonzalo Manolo
-    - APELLIDO=Martinez
-    - DOCUMENTO=62444117
-    - NACIMIENTO=1939-10-10
-    - NUMERO=3389
+    - NOMBRE=Paula Gonzalo
+    - APELLIDO=Paredes
+    - DOCUMENTO=80478279
+    - NACIMIENTO=2007-11-20
+    - NUMERO=4516
     image: client:latest
     networks:
     - testing_net

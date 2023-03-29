@@ -28,6 +28,17 @@ class Bet:
     def __str__(self):
         return f"{self.agency},{self.document},{self.number}"
 
+    @classmethod
+    def payload_to_bet(cls, agency, payload):
+        data = payload.split(',')
+        name = data[0]
+        last_name = data[1]
+        document = data[2]
+        birthday = data[3]
+        number_bet = data[4]
+
+        return cls(agency, name, last_name, document, birthday, number_bet)
+
 """ Checks whether a bet won the prize or not. """
 def has_won(bet: Bet) -> bool:
     return bet.number == LOTTERY_WINNER_NUMBER

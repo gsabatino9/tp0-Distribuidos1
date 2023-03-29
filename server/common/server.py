@@ -4,16 +4,6 @@ import signal
 from protocol.protocol import CommunicationServer
 from common.utils import Bet, store_bets
 
-def payload_to_bet(agency, payload):
-    data = payload.split(',')
-    name = data[0]
-    last_name = data[1]
-    document = data[2]
-    birthday = data[3]
-    number_bet = data[4]
-
-    return Bet(agency, name, last_name, document, birthday, number_bet)
-
 class Server:
     def __init__(self, port, listen_backlog):
         self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -41,7 +31,7 @@ class Server:
             client_comm.stop()
    
     def __process_msg(self, client_comm, msg):
-        bet = payload_to_bet(msg.data["agency"], msg.data["payload"][0])
+        bet = Bet.payload_to_bet(msg.agency, msg.payload)
         store_bets([bet])
         logging.info(f'action: apuesta_almacenada | result: success | dni: {bet.document} | numero: {bet.number}')
         client_comm.send_chunk_processed()
