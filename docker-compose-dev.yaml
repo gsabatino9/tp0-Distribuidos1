@@ -14,93 +14,14 @@ services:
     environment:
     - CLI_ID=1
     - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Paula Paula
-    - APELLIDO=Paredes
-    - DOCUMENTO=88437187
-    - NACIMIENTO=1981-12-28
-    - NUMERO=9241
+    - CHUNK_SIZE=1000
     image: client:latest
     networks:
     - testing_net
     volumes:
     - ./client/config:/config
     - ./protocol:/protocol
-  client2:
-    container_name: client2
-    depends_on:
-    - server
-    entrypoint: python3 /main.py
-    environment:
-    - CLI_ID=2
-    - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Lucas Marta
-    - APELLIDO=Martinez
-    - DOCUMENTO=77484299
-    - NACIMIENTO=1976-11-22
-    - NUMERO=4446
-    image: client:latest
-    networks:
-    - testing_net
-    volumes:
-    - ./client/config:/config
-    - ./protocol:/protocol
-  client3:
-    container_name: client3
-    depends_on:
-    - server
-    entrypoint: python3 /main.py
-    environment:
-    - CLI_ID=3
-    - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Lucas Paula
-    - APELLIDO=Perez
-    - DOCUMENTO=60441289
-    - NACIMIENTO=2006-11-21
-    - NUMERO=4442
-    image: client:latest
-    networks:
-    - testing_net
-    volumes:
-    - ./client/config:/config
-    - ./protocol:/protocol
-  client4:
-    container_name: client4
-    depends_on:
-    - server
-    entrypoint: python3 /main.py
-    environment:
-    - CLI_ID=4
-    - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Gonzalo Lionel
-    - APELLIDO=Martinez
-    - DOCUMENTO=54476256
-    - NACIMIENTO=2021-10-27
-    - NUMERO=4438
-    image: client:latest
-    networks:
-    - testing_net
-    volumes:
-    - ./client/config:/config
-    - ./protocol:/protocol
-  client5:
-    container_name: client5
-    depends_on:
-    - server
-    entrypoint: python3 /main.py
-    environment:
-    - CLI_ID=5
-    - CLI_LOG_LEVEL=DEBUG
-    - NOMBRE=Paula Gonzalo
-    - APELLIDO=De Paul
-    - DOCUMENTO=88444157
-    - NACIMIENTO=1920-12-27
-    - NUMERO=7997
-    image: client:latest
-    networks:
-    - testing_net
-    volumes:
-    - ./client/config:/config
-    - ./protocol:/protocol
+    - ./.data/dataset:/data
   server:
     container_name: server
     entrypoint: python3 /main.py

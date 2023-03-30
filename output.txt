@@ -1,0 +1,35 @@
+docker build -f ./server/Dockerfile -t "server:latest" .
+docker build -f ./client/Dockerfile -t "client:latest" .
+# Execute this command from time to time to clean up intermediate stages generated 
+# during client build (your hard drive will like this :) ). Don't left uncommented if you 
+# want to avoid rebuilding client image every time the docker-compose-up command 
+# is executed, even when client code has not changed
+# docker rmi `docker images --filter label=intermediateStageToBeDeleted=true -q`
+docker compose -f docker-compose-dev.yaml up -d --build
+docker compose -f docker-compose-dev.yaml logs -f
+server   | 2023-03-30 05:07:48 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 1 | logging_level: DEBUG
+server   | 2023-03-30 05:07:48 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-30 05:07:49 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:07:49 INFO     action: esperando_chunk
+client1  | 2023-03-30 05:07:49 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client1  | 2023-03-30 05:07:49 INFO     action: signal_received | result: success | signal: SIGTERM
+client1  | 2023-03-30 05:07:49 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client1  | 2023-03-30 05:07:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:07:49 DEBUG    action: socket_closed | result: success
+server   | 2023-03-30 05:07:49 INFO     action: accept_connections | result: in_progress
+client1  | 2023-03-30 05:07:49 INFO     action: close_resource | result: success | resource: communication_socket
+client1  | 2023-03-30 05:07:49 INFO     action: close_resource | result: success | resource: server_communication
+client1  | 2023-03-30 05:07:49 INFO     action: end_client_loop | result: success
+client1  | 2023-03-30 05:07:49 DEBUG    action: communication_closed
+client1 exited with code 0
+client1 exited with code 0
+server   | 2023-03-30 05:07:50 INFO     action: signal_received | result: success | signal: SIGTERM
+server   | 2023-03-30 05:07:50 DEBUG    action: close_resource | result: in_progress | resource: client_communication
+server   | 2023-03-30 05:07:50 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:07:50 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:07:50 INFO     action: close_resource | result: success | resource: client_communication
+server   | 2023-03-30 05:07:50 DEBUG    action: close_resource | result: in_progress | resource: server_socket
+server   | 2023-03-30 05:07:50 INFO     action: close_resource | result: success | resource: server_socket
+server   | 2023-03-30 05:07:50 DEBUG    action: socket_closed | result: success
+server   | 2023-03-30 05:07:50 INFO     action: clients_finished | result: success | msg: All bets processed
+server exited with code 0

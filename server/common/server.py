@@ -13,32 +13,55 @@ class Server:
         self._server_running = True
         signal.signal(signal.SIGTERM, self.__handle_sigterm)
 
+        self.max_clients = listen_backlog
+
     def run(self):
         self.client_comm = None
+        clients_done = set()
+
         while self._server_running:
             try:
                 self.client_comm = self.__accept_new_connection()
-                self.__handle_client_connection()
+                self.__handle_client_connection(clients_done)
             except:
                 logging.debug(f"action: socket_closed | result: success")
+            finally:
+                if len(clients_done) == self.max_clients:
+                    break
+
+        logging.info(f"action: clients_finished | result: success | msg: All bets processed")
+
     
-    def __handle_client_connection(self):
+    def __handle_client_connection(self, clients_done):
         if not self.client_comm: return
-        try:
-            msg = self.client_comm.recv_bets()
-            addr = self.client_comm.getpeername()
-            logging.info(f'action: receive_message | result: success | ip: {addr[0]} | msg: {msg}')   
-            self.__process_msg(msg)
-        except OSError as e:
-            logging.error(
-                "action: receive_message | result: fail | error: {e}")
-        finally:
-            self.client_comm.stop()
+        msg = None
+
+        self.__recv_all_bets()
+        self.client_comm.stop()
+        clients_done.add(msg.agency)
    
+    def __recv_all_bets(self):
+        logging.info('action: esperando_chunk')
+        msg = self.client_comm.recv_bets()
+
+        addr = self.client_comm.getpeername()
+        logging.info(f'action: receive_message | result: success | ip: {addr[0]}')   
+        self.__process_msg(msg)
+
+        while not self.client_comm.is_last_chunk(msg):
+            logging.info('action: esperando_chunk')
+            msg = self.client_comm.recv_bets()
+
+            addr = self.client_comm.getpeername()
+            logging.info(f'action: receive_message | result: success | ip: {addr[0]}')   
+            self.__process_msg(msg)
+
+        logging.info(f'action: all_bets_processed | result: success | agency: {msg.agency}')   
+
     def __process_msg(self, msg):
-        bet = Bet.payload_to_bet(msg.agency, msg.payload)
-        store_bets([bet])
-        logging.info(f'action: apuesta_almacenada | result: success | dni: {bet.document} | numero: {bet.number}')
+        bets = Bet.payload_to_bets(msg.agency, msg.payload)
+        store_bets(bets)
+        logging.info(f'action: apuestas_almacenadas | result: success | agencia: {msg.agency} | cantidad: {len(bets)}')
         self.client_comm.send_chunk_processed()
 
     def __accept_new_connection(self):

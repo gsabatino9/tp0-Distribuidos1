@@ -93,9 +93,12 @@ class CommunicationServer:
 	def recv_bets(self):
 		msg = self.comm.recv_msg()
 		msg.agency = msg.data["agency"]
-		msg.payload = msg.data["payload"][0]
+		msg.payload = msg.data["payload"]
 
 		return msg
+
+	def is_last_chunk(self, msg):
+		return msg.type_message == CommunicationClient.SEND_LAST_CHUNK
 
 	def send_chunk_processed(self):
 		msg = Message.message_server(self.CHUNK_PROCESSED)
@@ -124,12 +127,15 @@ class Communication:
 		for part in parts:
 			self.socket.sendall(bytes(part, 'utf-8'))
 
+		logging.info(f"action: todos_enviados | size: {size_to_send}")
+
 	def recv_msg(self):
 		msg = ""
 
 		data = self.socket.recv(4)
 		if not data: return None
 		size_msg = int.from_bytes(data, byteorder='big')
+		logging.info(f"action: size_msg | size: {size_msg}")
 
 		size_parts = self.__obtain_parts(size_msg)
 		for size_part in size_parts:
@@ -157,6 +163,8 @@ class Communication:
 			if not data:
 				raise ConnectionError("Socket cerrado inesperadamente.")
 			buffer += data
+
+		logging.info(f"action: total_recibido | size: {len(buffer)}")
 
 		return bytes(buffer)
 

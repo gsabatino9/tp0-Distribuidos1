@@ -4,5 +4,5 @@ def str_to_address(server_addr):
 
     return tuple(list_aux)
 
-def construct_payload(name, last_name, document, birthday, number_bet):
-    return [f"{name},{last_name},{document},{birthday},{number_bet}"]
+def construct_payload(rows):
+    return [','.join(e) for e in rows] # construct payload

@@ -38,6 +38,15 @@ class Bet:
 
         return cls(agency, name, last_name, document, birthday, number_bet)
 
+    @staticmethod
+    def payload_to_bets(agency, chunk):
+        bets = []
+        for str_bet in chunk:
+            bet = Bet.payload_to_bet(agency, str_bet)
+            bets.append(bet)
+
+        return bets
+
 """ Checks whether a bet won the prize or not. """
 def has_won(bet: Bet) -> bool:
     return bet.number == LOTTERY_WINNER_NUMBER
