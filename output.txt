@@ -7,70 +7,86 @@ docker build -f ./client/Dockerfile -t "client:latest" .
 # docker rmi `docker images --filter label=intermediateStageToBeDeleted=true -q`
 docker compose -f docker-compose-dev.yaml up -d --build
 docker compose -f docker-compose-dev.yaml logs -f
-client1  | 2023-03-30 17:37:33 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
-server   | 2023-03-30 17:37:33 INFO     Accepter todo bien
-server   | 2023-03-30 17:37:33 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 17:37:33 INFO     action: accept_connections | result: success | ip: 172.25.125.3
-server   | 2023-03-30 17:37:33 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:33 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:33 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 17:37:34 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 936
-client1  | 2023-03-30 17:37:34 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 936
-server   | 2023-03-30 17:37:34 INFO     Cliente terminó
-server   | 2023-03-30 17:37:34 INFO     action: client_finished | result: success
-server   | 2023-03-30 17:37:34 INFO     action: signal_received | result: success | signal: SIGTERM
-server   | 2023-03-30 17:37:34 INFO     action: end_server | result: success
-server   | 2023-03-30 17:37:34 INFO     action: sorteo | result: success
-server   | 2023-03-30 17:37:34 INFO     action: clients_finished | result: success | msg: All winners we're informed
-server   | 2023-03-30 17:37:34 INFO     action: end_server | result: success
+server   | 2023-03-30 18:33:21 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
+server   | 2023-03-30 18:33:21 INFO     action: accept_connections | result: in_progress | server_addr: ('', 12345)
+server   | 2023-03-30 18:33:21 INFO     action: accept_connections | result: in_progress | server_addr: ('', 12346)
+server   | 2023-03-30 18:33:21 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+server   | 2023-03-30 18:33:21 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+server   | 2023-03-30 18:33:21 INFO     action: accept_connections | result: in_progress | server_addr: ('', 12346)
+server   | 2023-03-30 18:33:21 INFO     action: accept_connections | result: in_progress | server_addr: ('', 12345)
+server   | 2023-03-30 18:33:21 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:21 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:21 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:21 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client1  | 2023-03-30 18:33:21 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:21 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:21 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:21 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 18:33:22 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 936
+server   | 2023-03-30 18:33:22 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 18:33:22 INFO     action: close_resource | result: success | resource: communication_socket
+client1  | 2023-03-30 18:33:22 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 936
+server   | 2023-03-30 18:33:22 INFO     action: client_finished | result: success
+server   | 2023-03-30 18:33:22 INFO     action: signal_received | result: success | signal: SIGTERM
+server   | 2023-03-30 18:33:22 INFO     action: end_server | result: success
+server   | 2023-03-30 18:33:22 INFO     action: sorteo | result: success
+server   | 2023-03-30 18:33:22 INFO     Se obtuvo agencia
+server   | 2023-03-30 18:33:22 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 18:33:22 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 18:33:22 INFO     Todo finalizado
+client1  | 2023-03-30 18:33:22 INFO     action: consulta_ganadores | result: success | cant_ganadores: 2
+client1  | 2023-03-30 18:33:22 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client1  | 2023-03-30 18:33:22 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client1  | 2023-03-30 18:33:22 INFO     action: close_resource | result: success | resource: communication_socket
+client1  | 2023-03-30 18:33:22 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client1  | 2023-03-30 18:33:22 INFO     action: close_resource | result: success | resource: communication_socket
+client1  | 2023-03-30 18:33:22 INFO     action: close_resource | result: success | resource: server_communication
+client1  | 2023-03-30 18:33:22 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 18:33:22 INFO     action: clients_finished | result: success | msg: All winners we're informed
+server   | 2023-03-30 18:33:22 INFO     action: end_server | result: success
+client1 exited with code 0

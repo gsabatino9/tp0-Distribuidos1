@@ -24,8 +24,11 @@ class Server:
 		server_flag = Event()
 		clients_queue = Queue(self.max_clients)
 		accepter = Accepter(('', self.port), clients_queue, self.max_clients, server_flag)
-		winners_queue = Queue(1)
+
+		server_flag2 = Event()
 		consults_queue = Queue(self.max_clients)
+		accepter_consults = Accepter(('', self.port+1), consults_queue, self.max_clients, server_flag2)
+
 		#request_handler = RequestHandler(clients_queue, server_flag, self.max_clients)
 
 		#request_handler.run()
@@ -48,7 +51,10 @@ class Server:
 					if clients_finished == self.max_clients:
 						server_flag.set()
 
-		self.__make_lottery(winners_queue)
+		winners = self.__make_lottery()
+		p = Process(target = self.inform_winners, args = (winners, consults_queue, server_flag2))
+		p.start()
+		p.join()
 		logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
 		"""except OSError:
 			logging.debug(f"action: socket_closed | result: success")
@@ -57,6 +63,22 @@ class Server:
 
 		self.stop()
 
+	def inform_winners(self, winners, consults_queue, server_flag):
+		agencies_ready = 0
+
+		while agencies_ready < self.max_clients:
+			agency = consults_queue.get()
+			logging.info('Se obtuvo agencia')
+			agency_winners = []
+			for bet in winners:
+				agency_winners.append(bet.document)
+
+			agency.send_agency_winners(agency_winners)
+			agency.stop()
+			agencies_ready += 1
+
+		server_flag.set()
+
 	def handle_request(self, client_comm, lock):
 		request = client_comm.recv_msg()
 		if client_comm.is_chunk(request):
@@ -64,7 +86,7 @@ class Server:
 
 		elif client_comm.is_last_chunk(request):
 			client_comm = self.__process_chunk(request, client_comm, lock)
-			logging.info('Cliente terminó')
+			client_comm.stop()
 			return None
 
 		#elif client_comm.is_consult_winners(request):
@@ -85,15 +107,14 @@ class Server:
 
 		return client_comm
 
-	def __make_lottery(self, winners_queue):
+	def __make_lottery(self):
 		winners = []
 		bets = list(load_bets())
 		for bet in bets:
 			if has_won(bet): winners.append(bet)
 
 		logging.info(f'action: sorteo | result: success')
-
-		winners_queue.put(winners)
+		return winners
 
 	def __handle_sigterm(self, *args):
 		logging.info("action: signal_received | result: success | signal: SIGTERM")

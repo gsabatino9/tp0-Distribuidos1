@@ -10,9 +10,13 @@ from itertools import islice
 
 class Client:
     def __init__(self, client_id, server_addr):
+        addr = server_addr.split(':')[0]
+        port = int(server_addr.split(':')[1])
+
         self._client_id = client_id
         self._server_addr = str_to_address(server_addr)
-        self.comm = self.__create_connection()
+        self.comm = self.__create_connection(self._server_addr)
+        self.comm_consult = self.__create_connection((addr, port+1))
 
         signal.siginterrupt(signal.SIGTERM, True)
         signal.signal(signal.SIGTERM, self.__handle_sigterm)
@@ -28,8 +32,7 @@ class Client:
         self.stop()
 
     def __consult_agency_winners(self):
-        self.comm.send_consult_agency_winners(self._client_id)
-        winners = self.comm.recv_agency_winners()
+        winners = self.comm_consult.recv_agency_winners()
         if winners:
             logging.info(f'action: consulta_ganadores | result: success | cant_ganadores: {len(winners)}')
         else:
@@ -57,10 +60,10 @@ class Client:
         if status:
             logging.info(f'action: apuestas_enviadas | result: success | agencia: {self._client_id} | cantidad: {len(payload)}')
 
-    def __create_connection(self):
+    def __create_connection(self, addr):
         try:
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client_socket.connect(self._server_addr)
+            client_socket.connect(addr)
             return CommunicationClient(client_socket)
         except ConnectionRefusedError:
             self.stop()
@@ -75,6 +78,8 @@ class Client:
         logging.debug("action: close_resource | result: in_progress | resource: server_communication")
         if self.comm:
             self.comm.stop()
+        if self.comm_consult:
+            self.comm_consult.stop()
         logging.info("action: close_resource | result: success | resource: server_communication")
 
         if self.running:
