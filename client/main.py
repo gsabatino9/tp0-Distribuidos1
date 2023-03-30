@@ -50,7 +50,7 @@ def main():
     logging.debug(f"action: config | result: success | server_addr: {server_addr} | "
                   f"logging_level: {logging_level}")
 
-    # Initialize server and start server loop
+    # Initialize client and start server loop
     client = Client(client_id, server_addr)
     client.send_bet(config_params["name"], config_params["last_name"], config_params["document"],
         config_params["birthday"], config_params["number_bet"])
