@@ -9,14 +9,10 @@ import csv
 from itertools import islice
 
 class Client:
-    def __init__(self, client_id, server_addr):
-        addr = server_addr.split(':')[0]
-        port = int(server_addr.split(':')[1])
-
+    def __init__(self, client_id, server_addr, consult_server_addr):
         self._client_id = client_id
-        self._server_addr = str_to_address(server_addr)
-        self.comm = self.__create_connection(self._server_addr)
-        self.comm_consult = self.__create_connection((addr, port+1))
+        self.comm = self.__create_connection(str_to_address(server_addr))
+        self.comm_consult = self.__create_connection(str_to_address(consult_server_addr))
 
         signal.siginterrupt(signal.SIGTERM, True)
         signal.signal(signal.SIGTERM, self.__handle_sigterm)

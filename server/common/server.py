@@ -1,41 +1,42 @@
-from multiprocessing import Process, Queue, Pool, Event, Manager
-from common.accepter import Accepter
+from multiprocessing import Queue, Event
 import socket
 import logging
 import signal
-from protocol.protocol import CommunicationServer, close_socket
-from common.utils import Bet, store_bets, load_bets, has_won
 import sys
+from protocol.protocol import CommunicationServer, close_socket
+from common.accepter import Accepter
+from common.utils import has_won, load_bets
 from common.request_handler import handle_clients
 from common.inform_winners import inform_winners
 
 
 class Server:
-	def __init__(self, port, listen_backlog):
+	def __init__(self, server_port, consult_server_port, listen_backlog):
 		self.max_clients = listen_backlog
-		self.port = port
+		self.server_port = server_port
+		self.consult_server_port = consult_server_port
 		
 		self._server_running = True
 		signal.signal(signal.SIGTERM, self.__handle_sigterm)
 
 	def run(self):
-		#try:
-		server_flag = Event()
-		clients_queue = Queue(self.max_clients)
-		accepter = Accepter(('', self.port), clients_queue, self.max_clients, server_flag)
+		try:
+			stop_bets = Event()
+			clients_queue = Queue(self.max_clients)
+			accepter = Accepter(('', self.server_port), clients_queue, self.max_clients, stop_bets)
 
-		server_flag2 = Event()
-		consults_queue = Queue(self.max_clients)
-		accepter_consults = Accepter(('', self.port+1), consults_queue, self.max_clients, server_flag2)
+			stop_consults = Event()
+			consults_queue = Queue(self.max_clients)
+			accepter_consults = Accepter(('', self.consult_server_port), consults_queue, self.max_clients, stop_consults)
 
-		handle_clients(server_flag, clients_queue, self.max_clients)
-		winners = self.__make_lottery()
-		inform_winners(winners, consults_queue, server_flag2, self.max_clients)
-		logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
-		"""except OSError:
+			handle_clients(stop_bets, clients_queue, self.max_clients)
+			winners = self.__make_lottery()
+			inform_winners(winners, consults_queue, stop_consults, self.max_clients)
+			logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
+		except OSError:
 			logging.debug(f"action: socket_closed | result: success")
 		except AttributeError:
-			logging.debug(f"action: communication_closed | result: success")"""
+			logging.debug(f"action: communication_closed | result: success")
 
 		self.stop()
 
@@ -54,12 +55,5 @@ class Server:
 		self.stop()
 
 	def stop(self):
-		"""for client_comm in self.client_comms:
-			logging.debug("action: close_resource | result: in_progress | resource: client_communication")
-			if client_comm:
-				client_comm.stop()
-			logging.info("action: close_resource | result: success | resource: client_communication")
-		"""
-		#close_socket(self._server_socket, 'server_socket')
 		logging.info("action: end_server | result: success")
 		sys.exit(0)

@@ -31,6 +31,7 @@ def main():
 	logging_level = config_params["log"]["level"]
 	client_id = config_params["client_id"]
 	server_addr = config_params["server"]["address"]
+	consult_server_addr = config_params["server"]["consult_address"]
 	chunk_size = int(config_params["chunk_size"])
 
 	initialize_log(logging_level)
@@ -41,7 +42,7 @@ def main():
 				  f"chunk_size: {chunk_size} | logging_level: {logging_level}")
 
 	# Initialize client and start server loop
-	client = Client(client_id, server_addr)
+	client = Client(client_id, server_addr, consult_server_addr)
 	filepath = f'data/agency-{client_id}.csv'
 	client.run(filepath, chunk_size)
 

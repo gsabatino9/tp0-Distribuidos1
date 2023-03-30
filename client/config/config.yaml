@@ -1,6 +1,7 @@
 # id: 1
 server:
   address: "server:12345"
+  consult_address: "server:12346"
 loop:
   lapse: "0m20s"
   period: "5s"
