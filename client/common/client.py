@@ -2,6 +2,8 @@ import socket
 import logging
 import signal
 from protocol.protocol import CommunicationClient
+import sys
+from time import sleep
 
 def str_to_address(server_addr):
     list_aux = server_addr.split(':')
@@ -20,12 +22,16 @@ class Client:
         self.running = True
 
     def send_bet(self, name, last_name, document, birthday, number_bet):
+        #sleep(3)
         payload = [f"{name},{last_name},{document},{birthday},{number_bet}"]
-        self.comm.send_bets(payload, self._client_id, is_last=True)
-        status = self.comm.recv_status_chunk()
-        if status:
-            logging.info(f'action: apuesta_enviada | result: success | dni: {document} | numero: {number_bet}')
-        
+        try:
+            self.comm.send_bets(payload, self._client_id, is_last=True)
+            status = self.comm.recv_status_chunk()
+            if status:
+                logging.info(f'action: apuesta_enviada | result: success | dni: {document} | numero: {number_bet}')
+        except:
+            logging.debug(f'action: communication_closed')
+
         self.stop()
 
     def __create_connection(self):
@@ -39,17 +45,13 @@ class Client:
         self.stop()
 
     def stop(self):
+        logging.debug("action: close_resource | result: in_progress | resource: server_communication")
+        if self.comm:
+            self.comm.stop()
+        logging.info("action: close_resource | result: success | resource: server_communication")
+
         if self.running:
-            logging.debug("action: close_resource | result: in_progress | resource: socket")
-            try:
-                self.comm.stop()
-            except OSError:
-                # if socket was alredy closed:
-                logging.debug(
-                    "action: close_resource | result: success | resource: socket | msg: socket already closed")
-            finally:
-                logging.info("action: close_resource | result: success | resource: socket")
-                logging.info("action: end_client_loop | result: success")
-                self.running = False
-        else:
-            logging.info("action: end_client_loop | result: success")
+            self.running = False
+        
+        logging.info("action: end_client_loop | result: success")
+        sys.exit(0)

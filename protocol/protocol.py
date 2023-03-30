@@ -1,7 +1,20 @@
 import json
 import socket
+import logging
 
 MAX_SIZE = (8 * 1024) - 128
+
+def close_socket(socket_to_close, resource_str):
+    logging.debug(f"action: close_resource | result: in_progress | resource: {resource_str}")
+    try:
+        socket_to_close.shutdown(socket.SHUT_RDWR)
+        socket_to_close.close()
+    except OSError:
+        # if socket was alredy closed:
+        logging.debug(
+            f"action: close_resource | result: success | resource: {resource_str} | msg: socket already closed")
+    finally:
+        logging.info(f"action: close_resource | result: success | resource: {resource_str}")
 
 class Message:
 	def __init__(self, data_json, ensure_ascii=True):
@@ -137,29 +150,15 @@ class Communication:
 		return parts
 
 	def __recv_all(self, size_msg):
-		# Se inicializa el buffer para guardar los datos recibidos
 		buffer = bytearray()
 
-		# Se lee el mensaje en bloques de size_msg hasta que se hayan leído todos los datos
 		while len(buffer) < size_msg:
 			data = self.socket.recv(size_msg)
 			if not data:
-				# Se detectó un cierre inesperado del socket
 				raise ConnectionError("Socket cerrado inesperadamente.")
 			buffer += data
 
-		# Se devuelve el mensaje completo
 		return bytes(buffer)
 
 	def stop(self):
-		"""
-		Function to release server resources.
-
-		The server closes the socket file descriptor and 
-		logs the action at the start and end of the operation.
-		"""
-		try:
-			self.socket.shutdown(socket.SHUT_RDWR)
-			self.socket.close()
-		except:
-			print('Socket ya desconectado')
+		close_socket(self.socket, 'communication_socket')
