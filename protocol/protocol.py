@@ -94,15 +94,23 @@ class CommunicationServer:
 	def getpeername(self):
 		return self.comm.getpeername()
 
-	def recv_bets(self):
-		msg = self.comm.recv_msg()
+	def recv_msg(self):
+		return self.comm.recv_msg()
+
+	def recv_bets(self, msg):
 		msg.agency = msg.data["agency"]
 		msg.payload = msg.data["payload"]
 
 		return msg
 
+	def is_chunk(self, msg):
+		return msg.type_message == CommunicationClient.SEND_CHUNK
+
 	def is_last_chunk(self, msg):
 		return msg.type_message == CommunicationClient.SEND_LAST_CHUNK
+
+	def is_consult_winners(self, msg):
+		return msg.type_message == CommunicationClient.CONSULT_AGENCY_WINNERS
 
 	def send_chunk_processed(self):
 		msg = Message.message_server(self.CHUNK_PROCESSED)
