@@ -7,81 +7,81 @@ docker build -f ./client/Dockerfile -t "client:latest" .
 # docker rmi `docker images --filter label=intermediateStageToBeDeleted=true -q`
 docker compose -f docker-compose-dev.yaml up -d --build
 docker compose -f docker-compose-dev.yaml logs -f
-client3  | 2023-03-30 21:50:49 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
-client3  | 2023-03-30 21:50:49 INFO     action: apuesta_enviada | result: success | dni: 66423202 | numero: 2979
-client3  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client3  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client3  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-client3  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: server_communication
-client3  | 2023-03-30 21:50:49 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 21:50:49 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: success | ip: 172.25.125.3
-server   | 2023-03-30 21:50:49 INFO     action: receive_message | result: success | ip: 172.25.125.3 | msg: {"type_message": 2, "agency": "5", "payload": ["Carla Paula,Rodriguez,83451263,1962-12-13,5747"]}
-server   | 2023-03-30 21:50:49 INFO     action: apuesta_almacenada | result: success | dni: 83451263 | numero: 5747
-server   | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: success | ip: 172.25.125.4
-server   | 2023-03-30 21:50:49 INFO     action: receive_message | result: success | ip: 172.25.125.4 | msg: {"type_message": 2, "agency": "2", "payload": ["Gonzalo Carla,Garcia,56461140,1935-11-24,8587"]}
-server   | 2023-03-30 21:50:49 INFO     action: apuesta_almacenada | result: success | dni: 56461140 | numero: 8587
-server   | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: success | ip: 172.25.125.5
-client2  | 2023-03-30 21:50:49 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
-client2  | 2023-03-30 21:50:49 INFO     action: apuesta_enviada | result: success | dni: 56461140 | numero: 8587
-client2  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client2  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client2  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-client2  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: server_communication
-client2  | 2023-03-30 21:50:49 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 21:50:49 INFO     action: receive_message | result: success | ip: 172.25.125.5 | msg: {"type_message": 2, "agency": "3", "payload": ["Marta Paula,Garcia,66423202,1910-12-12,2979"]}
-server   | 2023-03-30 21:50:49 INFO     action: apuesta_almacenada | result: success | dni: 66423202 | numero: 2979
-server   | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: success | ip: 172.25.125.6
-server   | 2023-03-30 21:50:49 INFO     action: receive_message | result: success | ip: 172.25.125.6 | msg: {"type_message": 2, "agency": "4", "payload": ["Marta Manolo,Paredes,67493119,1964-10-18,1292"]}
-server   | 2023-03-30 21:50:49 INFO     action: apuesta_almacenada | result: success | dni: 67493119 | numero: 1292
-server   | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: success | ip: 172.25.125.7
-server   | 2023-03-30 21:50:49 INFO     action: receive_message | result: success | ip: 172.25.125.7 | msg: {"type_message": 2, "agency": "1", "payload": ["Manolo Lucas,Garcia,61448203,2022-11-20,6081"]}
-server   | 2023-03-30 21:50:49 INFO     action: apuesta_almacenada | result: success | dni: 61448203 | numero: 6081
-server   | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 21:50:49 INFO     action: accept_connections | result: in_progress
-client5  | 2023-03-30 21:50:49 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
-client5  | 2023-03-30 21:50:49 INFO     action: apuesta_enviada | result: success | dni: 83451263 | numero: 5747
-client5  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client5  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client5  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-client5  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: server_communication
-client5  | 2023-03-30 21:50:49 INFO     action: end_client_loop | result: success
-client4  | 2023-03-30 21:50:49 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
-client4  | 2023-03-30 21:50:49 INFO     action: apuesta_enviada | result: success | dni: 67493119 | numero: 1292
-client4  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client4  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client4  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-client4  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: server_communication
-client4  | 2023-03-30 21:50:49 INFO     action: end_client_loop | result: success
-client1  | 2023-03-30 21:50:49 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
-client1  | 2023-03-30 21:50:49 INFO     action: apuesta_enviada | result: success | dni: 61448203 | numero: 6081
-client1  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client1  | 2023-03-30 21:50:49 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client1  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: communication_socket
-client1  | 2023-03-30 21:50:49 INFO     action: close_resource | result: success | resource: server_communication
-client1  | 2023-03-30 21:50:49 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 21:50:53 INFO     action: signal_received | result: success | signal: SIGTERM
-server   | 2023-03-30 21:50:53 DEBUG    action: close_resource | result: in_progress | resource: client_communication
-server   | 2023-03-30 21:50:53 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 21:50:53 DEBUG    action: close_resource | result: success | resource: communication_socket | msg: socket already closed
-server   | 2023-03-30 21:50:53 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 21:50:53 INFO     action: close_resource | result: success | resource: client_communication
-server   | 2023-03-30 21:50:53 DEBUG    action: close_resource | result: in_progress | resource: server_socket
-server   | 2023-03-30 21:50:53 INFO     action: close_resource | result: success | resource: server_socket
-server   | 2023-03-30 21:50:53 DEBUG    action: socket_closed | result: success
+client3  | 2023-03-30 23:34:57 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client3  | 2023-03-30 23:34:57 INFO     action: apuesta_enviada | result: success | dni: 63477287 | numero: 8256
+client3  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client3  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client3  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+client3  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: server_communication
+client3  | 2023-03-30 23:34:57 INFO     action: end_client_loop | result: success
+client1  | 2023-03-30 23:34:57 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client1  | 2023-03-30 23:34:57 INFO     action: apuesta_enviada | result: success | dni: 51478246 | numero: 8564
+client1  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client1  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client1  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+client1  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: server_communication
+client1  | 2023-03-30 23:34:57 INFO     action: end_client_loop | result: success
+client2  | 2023-03-30 23:34:57 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client2  | 2023-03-30 23:34:57 INFO     action: apuesta_enviada | result: success | dni: 49464135 | numero: 1114
+client2  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client2  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client2  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+client2  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: server_communication
+client2  | 2023-03-30 23:34:57 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 23:34:56 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
+server   | 2023-03-30 23:34:56 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+server   | 2023-03-30 23:34:57 INFO     action: receive_message | result: success | ip: 172.25.125.3 | msg: {"type_message": 2, "agency": "1", "payload": ["Gonzalo Paula,Paredes,51478246,1971-12-11,8564"]}
+server   | 2023-03-30 23:34:57 INFO     action: apuesta_almacenada | result: success | dni: 51478246 | numero: 8564
+server   | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: success | ip: 172.25.125.4
+server   | 2023-03-30 23:34:57 INFO     action: receive_message | result: success | ip: 172.25.125.4 | msg: {"type_message": 2, "agency": "3", "payload": ["Lucas Gonzalo,Martinez,63477287,1960-10-20,8256"]}
+server   | 2023-03-30 23:34:57 INFO     action: apuesta_almacenada | result: success | dni: 63477287 | numero: 8256
+server   | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: success | ip: 172.25.125.5
+server   | 2023-03-30 23:34:57 INFO     action: receive_message | result: success | ip: 172.25.125.5 | msg: {"type_message": 2, "agency": "2", "payload": ["Gonzalo Manolo,Fernandez,49464135,1922-10-22,1114"]}
+server   | 2023-03-30 23:34:57 INFO     action: apuesta_almacenada | result: success | dni: 49464135 | numero: 1114
+server   | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: success | ip: 172.25.125.6
+server   | 2023-03-30 23:34:57 INFO     action: receive_message | result: success | ip: 172.25.125.6 | msg: {"type_message": 2, "agency": "5", "payload": ["Marta Manolo,Fernandez,64390247,1929-12-27,5121"]}
+server   | 2023-03-30 23:34:57 INFO     action: apuesta_almacenada | result: success | dni: 64390247 | numero: 5121
+server   | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: in_progress
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: success | ip: 172.25.125.7
+server   | 2023-03-30 23:34:57 INFO     action: receive_message | result: success | ip: 172.25.125.7 | msg: {"type_message": 2, "agency": "4", "payload": ["Lionel Gonzalo,Paredes,48486156,1939-11-27,5592"]}
+server   | 2023-03-30 23:34:57 INFO     action: apuesta_almacenada | result: success | dni: 48486156 | numero: 5592
+server   | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 23:34:57 INFO     action: accept_connections | result: in_progress
+client5  | 2023-03-30 23:34:57 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client5  | 2023-03-30 23:34:57 INFO     action: apuesta_enviada | result: success | dni: 64390247 | numero: 5121
+client5  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client5  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client5  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+client5  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: server_communication
+client5  | 2023-03-30 23:34:57 INFO     action: end_client_loop | result: success
+client4  | 2023-03-30 23:34:57 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client4  | 2023-03-30 23:34:57 INFO     action: apuesta_enviada | result: success | dni: 48486156 | numero: 5592
+client4  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client4  | 2023-03-30 23:34:57 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client4  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: communication_socket
+client4  | 2023-03-30 23:34:57 INFO     action: close_resource | result: success | resource: server_communication
+client4  | 2023-03-30 23:34:57 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 23:35:00 INFO     action: signal_received | result: success | signal: SIGTERM
+server   | 2023-03-30 23:35:00 DEBUG    action: close_resource | result: in_progress | resource: client_communication
+server   | 2023-03-30 23:35:00 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 23:35:00 DEBUG    action: close_resource | result: success | resource: communication_socket | msg: socket already closed
+server   | 2023-03-30 23:35:00 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 23:35:00 INFO     action: close_resource | result: success | resource: client_communication
+server   | 2023-03-30 23:35:00 DEBUG    action: close_resource | result: in_progress | resource: server_socket
+server   | 2023-03-30 23:35:00 INFO     action: close_resource | result: success | resource: server_socket
+server   | 2023-03-30 23:35:00 DEBUG    action: socket_closed | result: success
 server exited with code 0
 server exited with code 0
