@@ -6,9 +6,9 @@ import signal
 from protocol.protocol import CommunicationServer, close_socket
 from common.utils import Bet, store_bets, load_bets, has_won
 import sys
-from common.request_handler import RequestHandler
+from common.request_handler import handle_clients
+from common.inform_winners import inform_winners
 
-POOL_SIZE = 1
 
 class Server:
 	def __init__(self, port, listen_backlog):
@@ -29,32 +29,9 @@ class Server:
 		consults_queue = Queue(self.max_clients)
 		accepter_consults = Accepter(('', self.port+1), consults_queue, self.max_clients, server_flag2)
 
-		#request_handler = RequestHandler(clients_queue, server_flag, self.max_clients)
-
-		#request_handler.run()
-
-		clients_finished = 0
-		with Manager() as manager:
-			lock = manager.Lock()
-
-			with Pool(processes=POOL_SIZE) as pool:
-				while not server_flag.is_set():
-					comm = clients_queue.get()
-					res = pool.apply_async(self.handle_request, (comm, lock))
-					comm = res.get()
-					if comm:
-						clients_queue.put(comm)
-					else:
-						logging.info(f'action: client_finished | result: success')   
-						clients_finished += 1
-
-					if clients_finished == self.max_clients:
-						server_flag.set()
-
+		handle_clients(server_flag, clients_queue, self.max_clients)
 		winners = self.__make_lottery()
-		p = Process(target = self.inform_winners, args = (winners, consults_queue, server_flag2))
-		p.start()
-		p.join()
+		inform_winners(winners, consults_queue, server_flag2, self.max_clients)
 		logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
 		"""except OSError:
 			logging.debug(f"action: socket_closed | result: success")
@@ -62,50 +39,6 @@ class Server:
 			logging.debug(f"action: communication_closed | result: success")"""
 
 		self.stop()
-
-	def inform_winners(self, winners, consults_queue, server_flag):
-		agencies_ready = 0
-
-		while agencies_ready < self.max_clients:
-			agency = consults_queue.get()
-			logging.info('Se obtuvo agencia')
-			agency_winners = []
-			for bet in winners:
-				agency_winners.append(bet.document)
-
-			agency.send_agency_winners(agency_winners)
-			agency.stop()
-			agencies_ready += 1
-
-		server_flag.set()
-
-	def handle_request(self, client_comm, lock):
-		request = client_comm.recv_msg()
-		if client_comm.is_chunk(request):
-			return self.__process_chunk(request, client_comm, lock)
-
-		elif client_comm.is_last_chunk(request):
-			client_comm = self.__process_chunk(request, client_comm, lock)
-			client_comm.stop()
-			return None
-
-		#elif client_comm.is_consult_winners(request):
-		#	consults_queue.put(client_comm)
-		#	return None
-
-		#else:
-			# spawneo algún error
-
-	def __process_chunk(self, request, client_comm, lock):
-		#if not self._server_running: return
-		msg = client_comm.recv_bets(request)
-		bets = Bet.payload_to_bets(msg.agency, msg.payload)
-		with lock:
-			store_bets(bets)
-		logging.info(f'action: apuestas_almacenadas | result: success | agencia: {msg.agency} | cantidad: {len(bets)}')
-		client_comm.send_chunk_processed()
-
-		return client_comm
 
 	def __make_lottery(self):
 		winners = []
