@@ -43,7 +43,7 @@ def main():
 	# Initialize client and start server loop
 	client = Client(client_id, server_addr)
 	filepath = f'data/agency-{client_id}.csv'
-	client.send_bets_for_chunks(filepath, chunk_size)
+	client.run(filepath, chunk_size)
 
 def initialize_log(logging_level):
 	"""

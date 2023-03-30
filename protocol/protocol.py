@@ -70,10 +70,14 @@ class CommunicationClient:
 		else:
 			return False
 
+	def send_consult_agency_winners(self, agency):
+		msg = Message.message_agency(self.CONSULT_AGENCY_WINNERS, agency)
+		self.comm.send_msg(msg)
+
 	def recv_agency_winners(self):
 		msg = self.comm.recv_msg()
 		if msg.type_message == CommunicationServer.INFORM_AGENCY_WINNERS:
-			return msg.payload
+			return msg.data["payload"]
 		else:
 			return None
 
@@ -105,8 +109,16 @@ class CommunicationServer:
 		self.comm.send_msg(msg)
 
 	def send_agency_winners(self, winners):
+		winners = ','.join(winners)
 		msg = Message.message_server(self.INFORM_AGENCY_WINNERS, payload=winners)
 		self.comm.send_msg(msg)
+
+	def recv_consult_winners(self):
+		msg = self.comm.recv_msg()
+		if msg.type_message == CommunicationClient.CONSULT_AGENCY_WINNERS:
+			return int(msg.data["agency"])
+		else:
+			return None
 
 	def stop(self):
 		self.comm.stop()
