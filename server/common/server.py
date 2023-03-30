@@ -37,7 +37,6 @@ class Server:
         self.client_comm.stop()
    
     def __recv_all_bets(self):
-        logging.info('action: esperando_chunk')
         msg = self.client_comm.recv_bets()
 
         addr = self.client_comm.getpeername()
@@ -45,14 +44,12 @@ class Server:
         self.__process_msg(msg)
 
         while not self.client_comm.is_last_chunk(msg):
-            logging.info('action: esperando_chunk')
             msg = self.client_comm.recv_bets()
 
             addr = self.client_comm.getpeername()
             logging.info(f'action: receive_message | result: success | ip: {addr[0]}')   
             self.__process_msg(msg)
 
-        logging.info(f'action: all_bets_processed | result: success | agency: {msg.agency}')   
 
     def __process_msg(self, msg):
         bets = Bet.payload_to_bets(msg.agency, msg.payload)
@@ -63,7 +60,7 @@ class Server:
     def __accept_new_connection(self):
         if not self._server_running: return None
 
-        logging.info('action: accept_connections | result: in_progress')
+        logging.debug('action: accept_connections | result: in_progress')
         c, addr = self._server_socket.accept()
         logging.info(f'action: accept_connections | result: success | ip: {addr[0]}')
 
@@ -83,4 +80,5 @@ class Server:
         logging.info("action: close_resource | result: success | resource: client_communication")
 
         close_socket(self._server_socket, 'server_socket')
+        logging.info("action: end_server | result: success")
         sys.exit(0)

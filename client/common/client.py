@@ -41,7 +41,6 @@ class Client:
         #sleep(3)
         payload = construct_payload(rows)
         self.comm.send_bets(payload, self._client_id, is_last=is_last)
-        logging.info(f'action: esperando_recv_status')
         status = self.comm.recv_status_chunk()
         if status:
             logging.info(f'action: apuestas_enviadas | result: success | agencia: {self._client_id} | cantidad: {len(payload)}')

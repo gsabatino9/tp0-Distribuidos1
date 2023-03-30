@@ -7,1435 +7,312 @@ docker build -f ./client/Dockerfile -t "client:latest" .
 # docker rmi `docker images --filter label=intermediateStageToBeDeleted=true -q`
 docker compose -f docker-compose-dev.yaml up -d --build
 docker compose -f docker-compose-dev.yaml logs -f
-client1  | 2023-03-30 05:35:49 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
-client1  | 2023-03-30 05:35:49 INFO     action: todos_enviados | size: 49810
-client1  | 2023-03-30 05:35:49 INFO     action: esperando_recv_status
-client5  | 2023-03-30 05:35:50 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
-client4  | 2023-03-30 05:35:49 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
-client4  | 2023-03-30 05:35:49 INFO     action: todos_enviados | size: 49835
-client4  | 2023-03-30 05:35:49 INFO     action: esperando_recv_status
-client4  | 2023-03-30 05:35:49 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:49 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-client4  | 2023-03-30 05:35:49 INFO     action: todos_enviados | size: 49832
-client4  | 2023-03-30 05:35:49 INFO     action: esperando_recv_status
-client4  | 2023-03-30 05:35:49 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:49 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49737
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-client3  | 2023-03-30 05:35:50 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
-client3  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49692
-client3  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-client2  | 2023-03-30 05:35:49 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
-client2  | 2023-03-30 05:35:49 INFO     action: todos_enviados | size: 49795
-client2  | 2023-03-30 05:35:49 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:49 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
-server   | 2023-03-30 05:35:49 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 05:35:49 INFO     action: accept_connections | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:49 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:49 INFO     action: size_msg | size: 49835
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 1451
-server   | 2023-03-30 05:35:49 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:49 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:49 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:49 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:49 INFO     action: size_msg | size: 49832
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:49 INFO     action: total_recibido | size: 1448
-server   | 2023-03-30 05:35:49 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:49 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:49 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:49 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49737
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1353
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49667
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49667
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-client5  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49372
-client5  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1283
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49772
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49772
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1388
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49858
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49858
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1474
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49723
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1339
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49723
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49776
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49776
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1392
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49820
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49820
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1436
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-client4  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 11383
-client4  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 11383
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 3319
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.3
-client4  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client4  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 238
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 238
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: all_bets_processed | result: success | agency: 4
-server   | 2023-03-30 05:35:50 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:50 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 05:35:50 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 05:35:50 INFO     action: accept_connections | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49810
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1426
-client4  | 2023-03-30 05:35:50 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client4  | 2023-03-30 05:35:50 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client4  | 2023-03-30 05:35:50 INFO     action: close_resource | result: success | resource: communication_socket
-client4  | 2023-03-30 05:35:50 INFO     action: close_resource | result: success | resource: server_communication
-client4  | 2023-03-30 05:35:50 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-client4 exited with code 0
-server   | 2023-03-30 05:35:50 INFO     action: size_msg | size: 49766
-client1  | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 49766
-client1  | 2023-03-30 05:35:50 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 1382
-server   | 2023-03-30 05:35:50 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:50 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:50 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:50 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:50 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:50 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49748
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49748
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1364
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49742
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49742
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1358
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49747
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49747
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1363
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49702
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49702
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1318
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49778
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49778
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1394
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49680
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49680
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1296
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49818
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49818
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1434
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49858
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49858
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1474
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:51 INFO     action: size_msg | size: 49823
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 49823
-client1  | 2023-03-30 05:35:51 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 1439
-server   | 2023-03-30 05:35:51 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:51 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:51 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:51 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:51 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:51 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49720
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49720
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1336
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49783
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49783
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1399
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49726
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49726
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1342
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49629
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49629
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1245
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49799
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49799
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1415
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49815
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49815
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1431
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49793
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49793
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1409
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 49770
-client1  | 2023-03-30 05:35:52 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:52 INFO     action: size_msg | size: 49770
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 1386
-server   | 2023-03-30 05:35:52 INFO     action: receive_message | result: success | ip: 172.25.125.4
-client1  | 2023-03-30 05:35:52 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:52 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:52 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:52 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:52 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49796
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49796
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1412
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49699
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49699
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1315
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49769
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49769
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1385
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49688
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49688
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1304
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49769
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49769
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1385
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49777
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1393
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49777
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49689
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49689
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1305
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
-client1  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 46509
-client1  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 46509
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 6189
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.4
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 936
-client1  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client1  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: all_bets_processed | result: success | agency: 1
-server   | 2023-03-30 05:35:53 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:53 INFO     action: close_resource | result: success | resource: communication_socket
-client1  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 936
-client1  | 2023-03-30 05:35:53 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client1  | 2023-03-30 05:35:53 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client1  | 2023-03-30 05:35:53 INFO     action: close_resource | result: success | resource: communication_socket
-client1  | 2023-03-30 05:35:53 INFO     action: close_resource | result: success | resource: server_communication
-client1  | 2023-03-30 05:35:53 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 05:35:53 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 05:35:53 INFO     action: accept_connections | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49795
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1411
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
+client4  | 2023-03-30 05:40:11 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client5  | 2023-03-30 05:40:11 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client3  | 2023-03-30 05:40:11 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client2  | 2023-03-30 05:40:11 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client1  | 2023-03-30 05:40:11 DEBUG    action: config | result: success | server_addr: server:12345 | chunk_size: 1000 | logging_level: DEBUG
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:10 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
+server   | 2023-03-30 05:40:10 DEBUG    action: accept_connections | result: in_progress
+server   | 2023-03-30 05:40:11 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 1000
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.3
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 1 | cantidad: 936
+server   | 2023-03-30 05:40:11 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:11 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:40:11 DEBUG    action: accept_connections | result: in_progress
+server   | 2023-03-30 05:40:11 INFO     action: accept_connections | result: success | ip: 172.25.125.4
+client1  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 1 | cantidad: 936
+client1  | 2023-03-30 05:40:11 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client1  | 2023-03-30 05:40:11 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client1  | 2023-03-30 05:40:11 INFO     action: close_resource | result: success | resource: communication_socket
+client1  | 2023-03-30 05:40:11 INFO     action: close_resource | result: success | resource: server_communication
+client1  | 2023-03-30 05:40:11 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
 client1 exited with code 0
-server   | 2023-03-30 05:35:53 INFO     action: size_msg | size: 49713
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 49713
-client2  | 2023-03-30 05:35:53 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 1329
-server   | 2023-03-30 05:35:53 INFO     action: receive_message | result: success | ip: 172.25.125.5
-client2  | 2023-03-30 05:35:53 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:53 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:53 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:53 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:53 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49796
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1412
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49796
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49881
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1497
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49881
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49713
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49713
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1329
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49826
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49826
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1442
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49812
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49812
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1428
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49573
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49573
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1189
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49778
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49778
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1394
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: size_msg | size: 49770
-client2  | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 49770
-client2  | 2023-03-30 05:35:54 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 1386
-server   | 2023-03-30 05:35:54 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:54 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:54 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:54 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:54 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:54 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49788
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1404
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49788
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49850
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49850
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1466
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49785
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49785
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1401
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49729
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49729
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1345
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49607
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49607
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1223
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49674
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49674
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1290
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49640
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49640
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1256
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: size_msg | size: 49736
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 49736
-client2  | 2023-03-30 05:35:55 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 1352
-server   | 2023-03-30 05:35:55 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:55 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:55 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:55 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:55 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:55 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49755
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49755
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1371
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49830
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49830
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1446
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49731
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49731
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1347
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49578
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49578
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1194
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49708
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49708
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1324
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49954
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49954
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1570
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49833
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49833
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1449
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client2  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 25973
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 25973
-client2  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1781
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.5
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 518
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: all_bets_processed | result: success | agency: 2
-client2  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client2  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 518
-client2  | 2023-03-30 05:35:56 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client2  | 2023-03-30 05:35:56 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:56 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:56 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 05:35:56 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 05:35:56 INFO     action: accept_connections | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49692
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1308
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.7
-client2  | 2023-03-30 05:35:56 INFO     action: close_resource | result: success | resource: communication_socket
-client2  | 2023-03-30 05:35:56 INFO     action: close_resource | result: success | resource: server_communication
-client2  | 2023-03-30 05:35:56 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:56 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:11 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:11 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:11 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 1000
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.4
+client2  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 2 | cantidad: 518
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 2 | cantidad: 518
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:40:12 DEBUG    action: accept_connections | result: in_progress
+server   | 2023-03-30 05:40:12 INFO     action: accept_connections | result: success | ip: 172.25.125.6
+client2  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client2  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client2  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+client2  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: server_communication
+client2  | 2023-03-30 05:40:12 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
 client2 exited with code 0
-server   | 2023-03-30 05:35:56 INFO     action: size_msg | size: 49825
-client3  | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 49825
-client3  | 2023-03-30 05:35:56 INFO     action: esperando_recv_status
-client3  | 2023-03-30 05:35:56 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:56 INFO     action: total_recibido | size: 1441
-server   | 2023-03-30 05:35:56 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:56 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:56 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:56 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49729
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49729
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1345
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49802
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1418
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49802
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49857
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49857
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1473
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49926
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49926
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1542
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49830
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49830
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1446
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49842
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49842
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1458
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49662
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49662
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1278
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:57 INFO     action: size_msg | size: 49726
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-client3  | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 49726
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-client3  | 2023-03-30 05:35:57 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 1342
-server   | 2023-03-30 05:35:57 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:57 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:57 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:57 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:57 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:57 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49885
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 1501
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 49885
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49801
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 49801
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 1417
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49798
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 49798
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 1414
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49688
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 1304
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 49688
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49810
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 49810
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 1426
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 49643
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49643
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 1259
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-client3  | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 756
-client3  | 2023-03-30 05:35:58 INFO     action: esperando_recv_status
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 756
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 756
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.7
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 14
-client3  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: all_bets_processed | result: success | agency: 3
-server   | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 05:35:58 INFO     action: accept_connections | result: in_progress
-server   | 2023-03-30 05:35:58 INFO     action: accept_connections | result: success | ip: 172.25.125.6
-server   | 2023-03-30 05:35:58 INFO     action: esperando_chunk
-server   | 2023-03-30 05:35:58 INFO     action: size_msg | size: 49372
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 8064
-server   | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 988
-server   | 2023-03-30 05:35:58 INFO     action: receive_message | result: success | ip: 172.25.125.6
-client3  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client3  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 14
-client3  | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client3  | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client3  | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: communication_socket
-client3  | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: server_communication
-client3  | 2023-03-30 05:35:58 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 05:35:58 INFO     action: apuestas_almacenadas | result: success | agencia: 5 | cantidad: 991
-client5  | 2023-03-30 05:35:58 INFO     action: size_msg | size: 36
-client5  | 2023-03-30 05:35:58 INFO     action: total_recibido | size: 36
-client5  | 2023-03-30 05:35:58 INFO     action: apuestas_enviadas | result: success | agencia: 5 | cantidad: 991
-client5  | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: server_communication
-client5  | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-client5  | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: communication_socket
-client5  | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: server_communication
-client5  | 2023-03-30 05:35:58 INFO     action: end_client_loop | result: success
-server   | 2023-03-30 05:35:58 INFO     action: todos_enviados | size: 36
-server   | 2023-03-30 05:35:58 INFO     action: all_bets_processed | result: success | agency: 5
-server   | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 05:35:58 INFO     action: clients_finished | result: success | msg: All bets processed
-server   | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: client_communication
-server   | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
-server   | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: success | resource: communication_socket | msg: socket already closed
-server   | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: communication_socket
-server   | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: client_communication
-server   | 2023-03-30 05:35:58 DEBUG    action: close_resource | result: in_progress | resource: server_socket
-server   | 2023-03-30 05:35:58 INFO     action: close_resource | result: success | resource: server_socket
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 1000
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.6
+client3  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 3 | cantidad: 14
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 3 | cantidad: 14
+client3  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client3  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client3  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+client3  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: server_communication
+client3  | 2023-03-30 05:40:12 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:40:12 DEBUG    action: accept_connections | result: in_progress
+server   | 2023-03-30 05:40:12 INFO     action: accept_connections | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
 client3 exited with code 0
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 1000
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 1000
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.5
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 4 | cantidad: 238
+client4  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 4 | cantidad: 238
+client4  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client4  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:40:12 DEBUG    action: accept_connections | result: in_progress
+server   | 2023-03-30 05:40:12 INFO     action: accept_connections | result: success | ip: 172.25.125.7
+client4  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+client4  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: server_communication
+client4  | 2023-03-30 05:40:12 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 05:40:12 INFO     action: receive_message | result: success | ip: 172.25.125.7
+server   | 2023-03-30 05:40:12 INFO     action: apuestas_almacenadas | result: success | agencia: 5 | cantidad: 991
+client5  | 2023-03-30 05:40:12 INFO     action: apuestas_enviadas | result: success | agencia: 5 | cantidad: 991
+client5  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client5  | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+client5  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+client5  | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: server_communication
+client5  | 2023-03-30 05:40:12 INFO     action: end_client_loop | result: success
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:40:12 INFO     action: clients_finished | result: success | msg: All bets processed
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: client_communication
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: communication_socket
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: success | resource: communication_socket | msg: socket already closed
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: communication_socket
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: client_communication
+server   | 2023-03-30 05:40:12 DEBUG    action: close_resource | result: in_progress | resource: server_socket
+server   | 2023-03-30 05:40:12 INFO     action: close_resource | result: success | resource: server_socket
+server   | 2023-03-30 05:40:12 INFO     action: end_server | result: success
+client4 exited with code 0
 client5 exited with code 0
 server exited with code 0

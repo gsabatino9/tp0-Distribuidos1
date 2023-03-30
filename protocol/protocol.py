@@ -127,15 +127,12 @@ class Communication:
 		for part in parts:
 			self.socket.sendall(bytes(part, 'utf-8'))
 
-		logging.info(f"action: todos_enviados | size: {size_to_send}")
-
 	def recv_msg(self):
 		msg = ""
 
 		data = self.socket.recv(4)
 		if not data: return None
 		size_msg = int.from_bytes(data, byteorder='big')
-		logging.info(f"action: size_msg | size: {size_msg}")
 
 		size_parts = self.__obtain_parts(size_msg)
 		for size_part in size_parts:
@@ -163,8 +160,6 @@ class Communication:
 			if not data:
 				raise ConnectionError("Socket cerrado inesperadamente.")
 			buffer += data
-
-		logging.info(f"action: total_recibido | size: {len(buffer)}")
 
 		return bytes(buffer)
 
