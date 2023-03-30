@@ -14,9 +14,6 @@ class Accepter:
 		self.max_clients = max_clients
 		self.server_flag = server_flag
 
-		# catcheo de señal
-		# ...
-
 		self.accepter_process = Process(target = self.accepter_loop, args = ())
 		self.accepter_process.start()
 

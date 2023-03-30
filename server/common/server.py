@@ -12,7 +12,6 @@ from common.inform_winners import inform_winners
 
 class Server:
 	def __init__(self, port, listen_backlog):
-		listen_backlog = 1
 		self.max_clients = listen_backlog
 		self.port = port
 		

@@ -32,8 +32,10 @@ class Client:
         self.stop()
 
     def __consult_agency_winners(self):
+        self.comm_consult.send_consult_agency_winners(self._client_id)
         winners = self.comm_consult.recv_agency_winners()
         if winners:
+            winners = [i for i in winners if len(i) > 2]
             logging.info(f'action: consulta_ganadores | result: success | cant_ganadores: {len(winners)}')
         else:
             logging.error(f'action: consulta_ganadores | result: error')
