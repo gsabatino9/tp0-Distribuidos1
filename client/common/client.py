@@ -19,11 +19,11 @@ class Client:
         self.running = True
 
     def run(self, filepath, chunk_size):
-        #try:
-        self.__send_bets_for_chunks(filepath, chunk_size)
-        self.__consult_agency_winners()
-        #except OSError:
-        #    logging.debug(f'action: communication_closed')
+        try:
+            self.__send_bets_for_chunks(filepath, chunk_size)
+            self.__consult_agency_winners()
+        except OSError:
+            logging.debug(f'action: communication_closed')
 
         self.stop()
 
@@ -50,7 +50,7 @@ class Client:
                 self.__send_bets(list(''), True)
             
     def __send_bets(self, rows, is_last=False):
-        #sleep(3)
+        #sleep(1)
         payload = construct_payload(rows)
         self.comm.send_bets(payload, self._client_id, is_last=is_last)
         status = self.comm.recv_status_chunk()

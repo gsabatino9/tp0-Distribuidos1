@@ -32,15 +32,19 @@ class Server:
 			logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
 		except OSError:
 			logging.debug(f"action: socket_closed | result: success")
+		except AttributeError:
+			logging.debug(f"action: communication_closed | result: success")
 
 		self.stop()
 	
 	def __handle_client_connection(self, agencies, client_comm):
-		if not client_comm: return
+		if not client_comm or not self._server_running: return
 		self.__recv_all_bets(client_comm)
 		self.__recv_consult_winners(agencies, client_comm)
 
 	def __recv_consult_winners(self, agencies, client_comm):
+		if not self._server_running: return
+
 		agency = client_comm.recv_consult_winners()
 		if agency:
 			agencies[agency] = client_comm
@@ -48,6 +52,8 @@ class Server:
 			self.stop()
 
 	def __make_lottery(self, agencies):
+		if not self._server_running: return
+
 		bets = list(load_bets())
 		logging.info(f'action: sorteo | result: success')
 		agencies_winners = {k: [] for k in agencies.keys()}
@@ -64,13 +70,14 @@ class Server:
 			client_comm.stop()		
    
 	def __recv_all_bets(self, client_comm):
+		if not self._server_running: return
 		msg = client_comm.recv_bets()
 
 		addr = client_comm.getpeername()
 		logging.info(f'action: receive_message | result: success | ip: {addr[0]}')   
 		self.__process_msg(msg, client_comm)
 
-		while not client_comm.is_last_chunk(msg):
+		while not client_comm.is_last_chunk(msg) and self._server_running:
 			msg = client_comm.recv_bets()
 
 			addr = client_comm.getpeername()
@@ -78,6 +85,8 @@ class Server:
 			self.__process_msg(msg, client_comm)
 
 	def __process_msg(self, msg, client_comm):
+		if not self._server_running: return
+
 		bets = Bet.payload_to_bets(msg.agency, msg.payload)
 		store_bets(bets)
 		logging.info(f'action: apuestas_almacenadas | result: success | agencia: {msg.agency} | cantidad: {len(bets)}')
