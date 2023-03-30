@@ -5,4 +5,4 @@ def str_to_address(server_addr):
     return tuple(list_aux)
 
 def construct_payload(rows):
-    return [','.join(e) for e in rows] # construct payload
+    return [','.join(e) for e in rows]

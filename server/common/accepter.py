@@ -17,9 +17,7 @@ class Accepter:
 		self.accepter_process = Process(target = self.accepter_loop, args = ())
 		self.accepter_process.start()
 
-	def accepter_loop(self):
-		#if not self._server_running: return
-		
+	def accepter_loop(self):		
 		clients = 0
 		while not self.server_flag.is_set() and clients <= self.max_clients:
 			try:
@@ -27,9 +25,7 @@ class Accepter:
 				conn, addr = self.server_socket.accept()
 				logging.info(f'action: accept_connections | result: success | ip: {addr[0]}')
 				client_comm = CommunicationServer(conn)
-				clients += 1 # acá en realidad debo chequear que se cree una
-				# conexión nueva -> un set, si alguno viene repetido, no lo pongo
-				# y cierro su conexión.
+				clients += 1
 				self.communications_queue.put(client_comm)
 			except:
 				pass

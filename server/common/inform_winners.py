@@ -11,8 +11,7 @@ def __inform_winners(winners, consults_queue, server_flag, max_clients):
 	while agencies_ready < max_clients:
 		agency_comm = consults_queue.get()
 		agency = agency_comm.recv_consult_winners()
-		#if not agency:
-		#	return?
+		if not agency: continue
 
 		agency_winners = []
 		for bet in winners:
