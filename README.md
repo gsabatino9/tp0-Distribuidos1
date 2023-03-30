@@ -4,7 +4,9 @@ El flag `-t` del comando `docker compose down` setea un timeout de 10 segundos (
 
 Es decir, envía la señal SIGTERM al contenedor y espera 10 segundos a que este cierre los file descriptors que necesite. Si pasados los 10 segundos no se liberan, envía la señal SIGKILL indicándole al sistema operativo que termine el proceso inmediatamente.
 
-Puesto que ambas aplicaciones (como se verá en cada subsección) liberan una pequeña cantidad de recursos, se sigue manteniendo en 10 segundos el tiempo de espera antes de matar al proceso de forma inmediata.
+En el makefile se utiliza 1 segundo como tiempo máximo.
+
+Puesto que ambas aplicaciones (como se verá en cada subsección) liberan una pequeña cantidad de recursos, se sigue manteniendo en 1 segundo el tiempo de espera antes de matar al proceso de forma inmediata.
 
 En las dos siguientes subsecciones se especifica qué se modificó del cliente y del servidor.
 
@@ -15,6 +17,8 @@ Se modifica la inicialización del servidor (en `server.py`) para que comience a
 Se setea un flag interno del servidor que, una vez se recibe la señal, indica que debe finalizar el loop en la función `run()`.
 
 Cuando se recibe una señal, se llama a la función `stop()` que cierra el file descriptor del socket del servidor, antes de que el thread de la aplicación principal muera.
+
+A su vez, se guarda el socket de conexión con el cliente. Si llega la señal SIGTERM, se cierra directamente el socket (no hace un cierre polite de recursos, sino un cierre graceful).
 
 ## Cliente
 Se modifica también la inicialización en el cliente (en `client.go`) para que escuche si ocurre SIGTERM en un canal.

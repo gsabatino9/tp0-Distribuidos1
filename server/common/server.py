@@ -14,6 +14,8 @@ class Server:
         self._server_running = True
         signal.signal(signal.SIGTERM, self.__handle_sigterm)
 
+        self.client_sock = None
+
     def run(self):
         """
         Dummy Server loop
@@ -25,10 +27,10 @@ class Server:
 
         # Server terminates when it receives SIGTERM
         while self._server_running:
-            client_sock = self.__accept_new_connection()
-            self.__handle_client_connection(client_sock)
+            self.client_sock = self.__accept_new_connection()
+            self.__handle_client_connection()
 
-    def __handle_client_connection(self, client_sock):
+    def __handle_client_connection(self):
         """
         Read message from a specific client socket and closes the socket
 
@@ -36,20 +38,20 @@ class Server:
         client socket will also be closed
         """
 
-        if not client_sock: return
+        if not self.client_sock: return
 
         try:
             # TODO: Modify the receive to avoid short-reads
-            msg = client_sock.recv(1024).rstrip().decode('utf-8')
-            addr = client_sock.getpeername()
+            msg = self.client_sock.recv(1024).rstrip().decode('utf-8')
+            addr = self.client_sock.getpeername()
             logging.info(f'action: receive_message | result: success | ip: {addr[0]} | msg: {msg}')
             # TODO: Modify the send to avoid short-writes
-            client_sock.send("{}\n".format(msg).encode('utf-8'))
+            self.client_sock.send("{}\n".format(msg).encode('utf-8'))
         except OSError as e:
             logging.error(
                 "action: receive_message | result: fail | error: {e}")
         finally:
-            client_sock.close()
+            self.client_sock.close()
 
     def __accept_new_connection(self):
         """
@@ -85,6 +87,10 @@ class Server:
 
         logging.debug("action: close_resource | result: in_progress | resource: socket")
         try:
+            if self.client_sock:
+                self.client_sock.shutdown(socket.SHUT_RDWR)
+                self.client_sock.close()
+
             self._server_socket.shutdown(socket.SHUT_RDWR)
             self._server_socket.close()
         except OSError:
@@ -93,3 +99,5 @@ class Server:
                 "action: close_resource | result: success | resource: socket | msg: socket already closed")
         finally:
             logging.info("action: close_resource | result: success | resource: socket")
+
+        exit(0)
