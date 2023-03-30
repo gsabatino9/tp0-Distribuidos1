@@ -2,7 +2,6 @@ import yaml
 import random
 
 def set_num_clients(num_clients):
-    num_clients=1
     with open('docker-compose-dev.yaml', 'r') as file:
         docker_compose = yaml.safe_load(file)
 

@@ -20,18 +20,19 @@ class Server:
 		clients_done = 0
 		agencies = {}
 
-		while self._server_running and clients_done < self.max_clients:
-			try:
+		try:
+			while self._server_running and clients_done < self.max_clients:
 				client_comm = self.__accept_new_connection()
 				self.client_comms.append(client_comm)
 				self.__handle_client_connection(agencies, client_comm)
-				self.__make_lottery(agencies)
-			except OSError:
-				logging.debug(f"action: socket_closed | result: success")
-			finally:
+			
 				clients_done += 1
 
-		logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
+			self.__make_lottery(agencies)
+			logging.info(f"action: clients_finished | result: success | msg: All winners we're informed")
+		except OSError:
+			logging.debug(f"action: socket_closed | result: success")
+
 		self.stop()
 	
 	def __handle_client_connection(self, agencies, client_comm):

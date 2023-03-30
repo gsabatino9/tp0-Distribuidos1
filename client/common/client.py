@@ -19,11 +19,11 @@ class Client:
         self.running = True
 
     def run(self, filepath, chunk_size):
-        try:
-            self.__send_bets_for_chunks(filepath, chunk_size)
-            self.__consult_agency_winners()
-        except OSError:
-            logging.debug(f'action: communication_closed')
+        #try:
+        self.__send_bets_for_chunks(filepath, chunk_size)
+        self.__consult_agency_winners()
+        #except OSError:
+        #    logging.debug(f'action: communication_closed')
 
         self.stop()
 

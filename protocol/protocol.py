@@ -77,7 +77,7 @@ class CommunicationClient:
 	def recv_agency_winners(self):
 		msg = self.comm.recv_msg()
 		if msg.type_message == CommunicationServer.INFORM_AGENCY_WINNERS:
-			return msg.data["payload"]
+			return msg.data["payload"].split(',')
 		else:
 			return None
 
