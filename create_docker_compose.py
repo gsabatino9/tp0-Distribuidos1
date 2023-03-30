@@ -20,7 +20,8 @@ def set_num_clients(num_clients):
                 'CLI_LOG_LEVEL=DEBUG'
             ],
             'networks': ['testing_net'],
-            'depends_on': ['server']
+            'depends_on': ['server'],
+            'volumes': ['./client/config:/config']
         }
 
     with open('docker-compose-dev.yaml', 'w') as file:

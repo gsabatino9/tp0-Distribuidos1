@@ -15,10 +15,10 @@ services:
     - CLI_ID=1
     - CLI_LOG_LEVEL=DEBUG
     image: client:latest
-    volumes:
-      - ./client/config:/config
     networks:
     - testing_net
+    volumes:
+    - ./client/config:/config
   client2:
     container_name: client2
     depends_on:
@@ -28,10 +28,23 @@ services:
     - CLI_ID=2
     - CLI_LOG_LEVEL=DEBUG
     image: client:latest
-    volumes:
-      - ./client/config:/config
     networks:
     - testing_net
+    volumes:
+    - ./client/config:/config
+  client3:
+    container_name: client3
+    depends_on:
+    - server
+    entrypoint: /client
+    environment:
+    - CLI_ID=3
+    - CLI_LOG_LEVEL=DEBUG
+    image: client:latest
+    networks:
+    - testing_net
+    volumes:
+    - ./client/config:/config
   server:
     container_name: server
     entrypoint: python3 /main.py
@@ -39,10 +52,10 @@ services:
     - PYTHONUNBUFFERED=1
     - LOGGING_LEVEL=DEBUG
     image: server:latest
-    volumes:
-      - server_data:/data
     networks:
     - testing_net
+    volumes:
+    - server_data:/data
 version: '3.9'
 volumes:
-  server_data:
+  server_data: null
