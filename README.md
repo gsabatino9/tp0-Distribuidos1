@@ -18,3 +18,15 @@ docker run --rm --network=tp0_testing_net netcat-container sh -c 'echo PING | nc
 es decir, me contecto a la misma red que el servidor y le envío un ping con netcat.
 * Me fijo si el servidor retorna correctamete e imprimo por pantalla.
 * Cierro recursos en modo silencioso.
+
+## Output
+```shell
+$ ./testing.sh
+
+Construyendo imagen con netcat.
+Imagen con netcat construida.
+Levantando EchoServer.
+EchoServer listo.
+SUCCESS: EchoServer retorna correctamente.
+EchoServer cerrado.
+```
