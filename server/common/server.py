@@ -17,28 +17,24 @@ class Server:
 
     def run(self):
         self.client_comm = None
-        clients_done = set()
+        clients_done = 0
 
-        while self._server_running:
+        while self._server_running and clients_done < self.max_clients:
             try:
                 self.client_comm = self.__accept_new_connection()
-                self.__handle_client_connection(clients_done)
+                self.__handle_client_connection()
             except:
                 logging.debug(f"action: socket_closed | result: success")
             finally:
-                if len(clients_done) == self.max_clients:
-                    break
+                clients_done += 1
 
         logging.info(f"action: clients_finished | result: success | msg: All bets processed")
-
+        self.stop()
     
-    def __handle_client_connection(self, clients_done):
+    def __handle_client_connection(self):
         if not self.client_comm: return
-        msg = None
-
         self.__recv_all_bets()
         self.client_comm.stop()
-        clients_done.add(msg.agency)
    
     def __recv_all_bets(self):
         logging.info('action: esperando_chunk')

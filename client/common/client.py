@@ -38,7 +38,7 @@ class Client:
         self.stop()
 
     def send_bets(self, rows, is_last=False):
-        sleep(3)
+        #sleep(3)
         payload = construct_payload(rows)
         self.comm.send_bets(payload, self._client_id, is_last=is_last)
         logging.info(f'action: esperando_recv_status')

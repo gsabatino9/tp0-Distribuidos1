@@ -159,7 +159,7 @@ class Communication:
 		buffer = bytearray()
 
 		while len(buffer) < size_msg:
-			data = self.socket.recv(size_msg)
+			data = self.socket.recv(size_msg-len(buffer))
 			if not data:
 				raise ConnectionError("Socket cerrado inesperadamente.")
 			buffer += data
