@@ -4,12 +4,7 @@ import signal
 from protocol.protocol import CommunicationClient
 import sys
 from time import sleep
-
-def str_to_address(server_addr):
-    list_aux = server_addr.split(':')
-    list_aux[1] = int(list_aux[1])
-
-    return tuple(list_aux)
+from common.utils import str_to_address, construct_payload
 
 class Client:
     def __init__(self, client_id, server_addr):
@@ -23,7 +18,7 @@ class Client:
 
     def send_bet(self, name, last_name, document, birthday, number_bet):
         #sleep(3)
-        payload = [f"{name},{last_name},{document},{birthday},{number_bet}"]
+        payload = construct_payload(name, last_name, document, birthday, number_bet)
         try:
             self.comm.send_bets(payload, self._client_id, is_last=True)
             status = self.comm.recv_status_chunk()
