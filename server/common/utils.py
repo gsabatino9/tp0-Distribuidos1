@@ -29,7 +29,7 @@ class Bet:
 
     @classmethod
     def payload_to_bet(cls, agency, payload):
-        data = payload.split(',')
+        data = payload[0].split(',')
         name = data[0]
         last_name = data[1]
         document = data[2]

@@ -1,0 +1,48 @@
+docker compose -f docker-compose-dev.yaml logs -f
+client5  | 2023-04-09 03:58:12 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client5  | 2023-04-09 03:58:12 INFO     action: apuesta_enviada | result: success | dni: 64390247 | numero: 5121
+client5  | 2023-04-09 03:58:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client5  | 2023-04-09 03:58:12 INFO     action: close_resource | result: success | resource: server_communication
+client5  | 2023-04-09 03:58:12 INFO     action: end_client_loop | result: success
+client4  | 2023-04-09 03:58:12 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client4  | 2023-04-09 03:58:12 INFO     action: apuesta_enviada | result: success | dni: 48486156 | numero: 5592
+client4  | 2023-04-09 03:58:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client4  | 2023-04-09 03:58:12 INFO     action: close_resource | result: success | resource: server_communication
+client4  | 2023-04-09 03:58:12 INFO     action: end_client_loop | result: success
+server   | 2023-04-09 03:58:12 DEBUG    action: config | result: success | port: 12345 | listen_backlog: 5 | logging_level: DEBUG
+client1  | 2023-04-09 03:58:12 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: in_progress
+client1  | 2023-04-09 03:58:12 INFO     action: apuesta_enviada | result: success | dni: 51478246 | numero: 8564
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: success | ip: 172.25.125.4
+client1  | 2023-04-09 03:58:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+server   | 2023-04-09 03:58:12 INFO     action: receive_message | result: success | ip: 172.25.125.4 | agency: 4
+client1  | 2023-04-09 03:58:12 INFO     action: close_resource | result: success | resource: server_communication
+server   | 2023-04-09 03:58:12 INFO     action: apuesta_almacenada | result: success | dni: 48486156 | numero: 5592
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: in_progress
+client1  | 2023-04-09 03:58:12 INFO     action: end_client_loop | result: success
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: success | ip: 172.25.125.3
+client2  | 2023-04-09 03:58:12 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+client2  | 2023-04-09 03:58:12 INFO     action: apuesta_enviada | result: success | dni: 49464135 | numero: 1114
+client2  | 2023-04-09 03:58:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client2  | 2023-04-09 03:58:12 INFO     action: close_resource | result: success | resource: server_communication
+client2  | 2023-04-09 03:58:12 INFO     action: end_client_loop | result: success
+client3  | 2023-04-09 03:58:12 DEBUG    action: config | result: success | server_addr: server:12345 | logging_level: DEBUG
+server   | 2023-04-09 03:58:12 INFO     action: receive_message | result: success | ip: 172.25.125.3 | agency: 5
+server   | 2023-04-09 03:58:12 INFO     action: apuesta_almacenada | result: success | dni: 64390247 | numero: 5121
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: in_progress
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: success | ip: 172.25.125.5
+server   | 2023-04-09 03:58:12 INFO     action: receive_message | result: success | ip: 172.25.125.5 | agency: 2
+server   | 2023-04-09 03:58:12 INFO     action: apuesta_almacenada | result: success | dni: 49464135 | numero: 1114
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: in_progress
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: success | ip: 172.25.125.6
+server   | 2023-04-09 03:58:12 INFO     action: receive_message | result: success | ip: 172.25.125.6 | agency: 1
+server   | 2023-04-09 03:58:12 INFO     action: apuesta_almacenada | result: success | dni: 51478246 | numero: 8564
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: in_progress
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: success | ip: 172.25.125.7
+server   | 2023-04-09 03:58:12 INFO     action: receive_message | result: success | ip: 172.25.125.7 | agency: 3
+client3  | 2023-04-09 03:58:12 INFO     action: apuesta_enviada | result: success | dni: 63477287 | numero: 8256
+client3  | 2023-04-09 03:58:12 DEBUG    action: close_resource | result: in_progress | resource: server_communication
+client3  | 2023-04-09 03:58:12 INFO     action: close_resource | result: success | resource: server_communication
+client3  | 2023-04-09 03:58:12 INFO     action: end_client_loop | result: success
+server   | 2023-04-09 03:58:12 INFO     action: apuesta_almacenada | result: success | dni: 63477287 | numero: 8256
+server   | 2023-04-09 03:58:12 INFO     action: accept_connections | result: in_progress

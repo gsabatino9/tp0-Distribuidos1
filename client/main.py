@@ -51,7 +51,7 @@ def main():
                   f"logging_level: {logging_level}")
 
     # Initialize client and start server loop
-    client = Client(client_id, server_addr)
+    client = Client(int(client_id), server_addr)
     client.send_bet(config_params["name"], config_params["last_name"], config_params["document"],
         config_params["birthday"], config_params["number_bet"])
 

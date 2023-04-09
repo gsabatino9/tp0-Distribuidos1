@@ -1,7 +1,8 @@
 import socket
 import logging
 import signal
-from protocol.protocol import CommunicationServer, close_socket
+from protocol.utils import close_socket
+from protocol.communication_server import CommunicationServer
 from common.utils import Bet, store_bets
 import sys
 
@@ -25,21 +26,21 @@ class Server:
     def __handle_client_connection(self):
         if not self.client_comm: return
         try:
-            msg = self.client_comm.recv_bets()
+            agency, payload = self.client_comm.recv_bet()
             addr = self.client_comm.getpeername()
-            logging.info(f'action: receive_message | result: success | ip: {addr[0]} | msg: {msg}')   
-            self.__process_msg(msg)
+            logging.info(f'action: receive_message | result: success | ip: {addr[0]} | agency: {agency}')   
+            self.__process_msg(agency, payload)
         except OSError as e:
             logging.error(
                 "action: receive_message | result: fail | error: {e}")
         finally:
             self.client_comm.stop()
    
-    def __process_msg(self, msg):
-        bet = Bet.payload_to_bet(msg.agency, msg.payload)
+    def __process_msg(self, agency, payload):
+        bet = Bet.payload_to_bet(agency, payload)
         store_bets([bet])
         logging.info(f'action: apuesta_almacenada | result: success | dni: {bet.document} | numero: {bet.number}')
-        self.client_comm.send_chunk_processed()
+        self.client_comm.send_bet_processed()
 
     def __accept_new_connection(self):
         if not self._server_running: return None

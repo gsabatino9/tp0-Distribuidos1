@@ -1,10 +1,9 @@
 import socket
 import logging
 import signal
-from protocol.protocol import CommunicationClient
-import sys
-from time import sleep
+from protocol.communication_client import CommunicationClient
 from common.utils import str_to_address, construct_payload
+import sys
 
 class Client:
     def __init__(self, client_id, server_addr):
@@ -17,11 +16,10 @@ class Client:
         self.running = True
 
     def send_bet(self, name, last_name, document, birthday, number_bet):
-        #sleep(3)
         payload = construct_payload(name, last_name, document, birthday, number_bet)
         try:
-            self.comm.send_bets(payload, self._client_id, is_last=True)
-            status = self.comm.recv_status_chunk()
+            self.comm.send_bet(payload, self._client_id, is_last=True)
+            status = self.comm.recv_status_bet()
             if status:
                 logging.info(f'action: apuesta_enviada | result: success | dni: {document} | numero: {number_bet}')
         except:
