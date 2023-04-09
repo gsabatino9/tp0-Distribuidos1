@@ -1,24 +1,22 @@
 # Protocolo de comunicación
 ## Tipo de protocolo
-Se cuenta con un protocolo híbrido:
-* En primera instancia se manda la cantidad de bytes que se van a enviar a continuación del mensaje.
-* Luego, se cuenta con un protocolo de texto, utilizando la librería json.
-
-Se utilizó un protocolo de texto por sus facilidades para codificar de forma rápida y poder debuggear en la terminal (que cobró mayor importancia en el ejercicio 8 de concurrencia).
-
-A su vez, puesto que (como se explica a continuación), la cantidad de campos no es elevada, no se pierde una gran cantidad de Bytes con este protocolo. Por lo tanto, se decidió mantenerlo pese a que un protocolo binario es más eficiente.
+Se cuenta con un protocolo binario que tiene:
+* Un header (que contiene el tipo de mensaje entre otros campos).
+* Un payload (que contiene la información a enviar al otro extremo).
 
 ## Formato
 ### Cliente a servidor
-El protocolo consta de 3 campos:
-* `type_message`: SEND_CHUNK, SEND_LAST_CHUNK, CONSULT_AGENCY_WINNERS. Se utiliza el concepto de "chunk" para mantener el protocolo coherente con el resto de los ejercicios, aunque en el 5 el "chunk" esté compuesto únicamente de un paquete.
+El header consta de 3 campos:
+* `code`: SEND_BET, SEND_LAST_BET.
 * `agency`: Se indica el número de agencia que quiere realizar la operación.
-* `payload` (opcional): En el caso de mandar un paquete/chunk de paquetes, se especifica una lista con los mismos.
+* `len`: El largo del payload (en bytes) a enviar.
+
+El payload contiene únicamente la apuesta en formato de string.
 
 ### Servidor a cliente
-El protocolo consta de 2 campos:
-* `type_message`: CHUNK_PROCESSED (todos los paquetes en un chunk fueron almacenados con éxito), INFORM_AGENCY_WINNERS (informar a la agencia quiénes son *sus* ganadores).
-* `payload` (opcional): En el caso de mandar los ganadores a una agencia, se especifica una lista con los documentos de los mismos.
+El header consta de 2 campos:
+* `code`: BET_PROCESSED (indicando que la apuesta fue almacenada).
+* `len`: Para los puntos siguientes, en el caso de querer enviar quiénes son los ganadores de la agencia.
 
 ## Limitación del tamaño de los paquetes
 Para no enviar paquetes de más de 8KB (en total, incluyendo headers TCP), se realiza:
@@ -43,20 +41,18 @@ Se realizaron tanto el cliente como el servidor en python.
 Cada cliente se conecta de forma secuencial al servidor y envía una sola apuesta (esperando que haya sido realizado correctamente).
 
 La secuencia lógica es:
-1. Cliente envía un paquete del tipo SEND_LAST_CHUNK al servidor, con la agencia como su número de id. El cliente se queda esperando la respuesta exitosa por parte del servidor.
+1. Cliente envía un paquete del tipo SEND_LAST_BET al servidor, con la agencia como su número de id. El cliente se queda esperando la respuesta exitosa por parte del servidor.
 2. El servidor recibe el paquete (utilizando el protocolo para deserializar y recibir todos los bytes evitando un short read).
 3. Almacena la apuesta.
 4. Loguea con éxito que la apuesta fue almacenada.
-5. Envía un paquete al cliente del tipo CHUNK_PROCESSED al cliente.
+5. Envía un paquete al cliente del tipo BET_PROCESSED al cliente.
 6. El cliente lo recibe (de forma análoga al servidor) y loguea el éxito.
 
 ## Ejecución
 
-Se cuenta con un script `server_up.sh` que genera el `docker-compose-dev.yaml` con datos randomizados (a cada cliente le genera nombres, apellidos, etc), realiza un `make docker-compose-up` y un `make docker-compose-logs`.
-
 La línea de ejecución es:
 ```shell
-./server_up.sh | tee output.txt
+make docker-compose-up && make docker-compose-logs | tee output.txt
 ```
 De esta manera, se levanta el servidor, se pueden visualizar los logs en la terminal y se duplican los logs en el archivo "output.txt" para poder realizar, por ejemplo, un `cat` de la salida.
 

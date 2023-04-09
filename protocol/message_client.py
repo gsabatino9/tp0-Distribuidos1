@@ -5,7 +5,6 @@ class MessageClient:
 	# Constants for message types
 	SEND_BET = 1
 	SEND_LAST_BET = 2
-	CONSULT_AGENCY_WINNERS = 3
 
 	# Struct format for message header
 	HEADER_CODE = '!BBI'

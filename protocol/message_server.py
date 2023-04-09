@@ -4,7 +4,6 @@ from struct import pack, unpack, calcsize
 class MessageServer:
 	# Constants for message codes
 	BET_PROCESSED = 1
-	INFORM_AGENCY_WINNERS = 2
 
 	# Message header format
 	HEADER_CODE = '!BI'
